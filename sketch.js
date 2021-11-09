@@ -1,11 +1,13 @@
 //Sketch
 
-let foods = [['apple pie']];
+let foods = [
+  ['apple pie']
+];
 
 function preload() {
   loadFoods();
-  loadTrends();
   loadRecipes();
+  loadTrends();
 }
 
 function setup() {
@@ -21,12 +23,19 @@ function loadFoods() {
 }
 
 function loadTrends() {
-  let stem = '';
-  let key = 'TFkhMD2Ty8d03U6yGWv1USnBcxHjUA7W';
 
-  for (let food of foods) {
-    let q = food + ' recipe';
-  }
+  var exec = require('getTrends.js').exec;
+
+  var cmd = exec("npm build", function(err, stdout, stderr) {
+    if (err) {
+      // handle error
+    }
+    console.log(stdout);
+  });
+
+  dir.on('exit', function(code) {
+    // return value from "npm build"
+  });
 }
 
 function loadRecipes() {
@@ -36,8 +45,7 @@ function loadRecipes() {
   for (let food of foods) {
     let q = food + ' recipe';
     let b = '20040101'
-    let url  = stem + '?q=' + q + '&begin_date' + b + '&api-key=' + key;
-    print(url);
+    let url = stem + '?q=' + q + '&begin_date' + b + '&api-key=' + key;
 
     loadJSON(url, gotNYT);
   }
@@ -47,12 +55,13 @@ function loadRecipes() {
 
 function gotNYT(data) {
   let d = data;
+  let recipes = [];
 
   let articles = d.response.docs;
-  for(let a of articles) {
+  for (let a of articles) {
     let head = a.headline.print_headline;
     let path = a.web_url;
-    print(path);
-    //let
+    recipes.push([head, path]);
   }
+
 }
