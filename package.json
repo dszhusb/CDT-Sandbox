@@ -1,0 +1,28 @@
+{
+  "name": "cdt-sandbox",
+  "version": "1.0.0",
+  "description": "Computational Design Thinking | Project 2| 2021",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dszhusb/CDT-Sandbox.git"
+  },
+  "keywords": [
+    "food",
+    "recipes",
+    "nyt"
+  ],
+  "author": "Daniel Zhu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dszhusb/CDT-Sandbox/issues"
+  },
+  "homepage": "https://github.com/dszhusb/CDT-Sandbox#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nedb": "^1.8.0"
+  }
+}
