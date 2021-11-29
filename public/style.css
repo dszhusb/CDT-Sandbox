@@ -1,8 +1,11 @@
 /* stylesheet */
 
-html,
+html {
+  font-family: "Forma-DJR-Display";
+}
 
 header {
+  /* Spacing */
   max-width: 100%;
   margin: 0 auto;
   height: 6rem;
@@ -10,24 +13,56 @@ header {
 }
 
 nav {
-  padding: 1rem;
-  font-size: 1rem;
+  padding: 1em;
 }
 
 nav ul li a {
+  /* Display */
+  float: right;
   display: inline-block;
+
+  /* Text */
   color: black;
   text-decoration: none;
+  font-size: 1.5rem;
+
+  /* Spacing */
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 ul {
-  float: right;
   list-style: none;
 }
 
 body {
+  /* Spacing */
   padding: 0;
   margin: 0;
+
+  /* Background */
+  background-image: url(assets/grid.png);
+  background-size: 100vw;
+}
+
+.bar {
+  /* border-top: 1px solid black; */
+}
+
+.bar ul li {
+  /* Display */
+  float: right;
+  display: inline-block;
+  width: 5%;
+
+  /* Text */
+  text-align: center;
+}
+
+img#titleimage {
+  width: 100%;
+  height: auto;
+
 }
 
 canvas {
