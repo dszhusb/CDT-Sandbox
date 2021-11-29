@@ -10,7 +10,7 @@ app.use(express.static('public'));
 const database = new Datastore('database.db');
 database.loadDatabase();
 
-fetchTrendsData(['apple pie', 'deez nuts']);
+fetchTrendsData(['apple pie', 'peanut butter crepe', 'pineapple pizza', 'apple cider']);
 
 // app.get('/api', (request, response) => {
 //   database.fin({}, (err, data) => {

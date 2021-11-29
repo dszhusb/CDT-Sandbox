@@ -5,8 +5,8 @@ let foods = [
 ];
 
 function preload() {
-  loadFoods();
-  loadRecipes();
+  // loadFoods();
+  // loadRecipes();
   // loadTrends();
 }
 

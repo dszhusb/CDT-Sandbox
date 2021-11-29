@@ -1,6 +1,30 @@
 /* stylesheet */
 
 html,
+
+header {
+  max-width: 100%;
+  margin: 0 auto;
+  height: 6rem;
+  border-bottom: 1px solid black;
+}
+
+nav {
+  padding: 1rem;
+  font-size: 1rem;
+}
+
+nav ul li a {
+  display: inline-block;
+  color: black;
+  text-decoration: none;
+}
+
+ul {
+  float: right;
+  list-style: none;
+}
+
 body {
   padding: 0;
   margin: 0;
@@ -8,9 +32,4 @@ body {
 
 canvas {
   vertical-align: top;
-}
-
-a {
-  color: white;
-  text-decoration: none;
 }
