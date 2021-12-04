@@ -12,13 +12,13 @@ app.use(express.static('public'));
 const database = new Datastore('database.db');
 database.loadDatabase();
 
-let foodIndex = 0;
-let trendsArray = [];
-
-let foodArray = arrayifyFoods();
-console.log(foodArray);
-
-setInterval(getInterest, 1500);
+// let foodIndex = 0;
+// let trendsArray = [];
+//
+// let foodArray = arrayifyFoods();
+// console.log(foodArray);
+//
+// setInterval(getInterest, 1500);
 
 function getInterest() {
   food = foodArray[foodIndex];
@@ -43,7 +43,7 @@ function getInterest() {
   if (foodIndex >= 867) {
     jsonFile.writeFile('trendsData.json', trendsArray);
   }
-  
+
   foodIndex++;
 }
 
