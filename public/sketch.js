@@ -39,7 +39,7 @@ function populateLists() {
 }
 
 function loadFoods() {
-  const url = './foodlist.json';
+  const url = 'foodlist.json';
   let data = loadJSON(url, fillFoods);
 }
 
