@@ -143,4 +143,3 @@ function expandDrawer(element) {
         calendars[i].style.gridTemplateColumns = template
     }
 }
->>>>>>> Stashed changes
