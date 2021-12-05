@@ -18,7 +18,7 @@ function draw() {
 }
 
 function loadFoods() {
-  const url = './foodlist.json';
+  const url = 'foodlist.json';
   let data = loadJSON(url, fillFoods);
 }
 
@@ -82,7 +82,6 @@ function establishRankings(tags) {
       let topScore = -1;
       let topIndex = -1;
       for (let i = 0; i < foods.length; i++) {
-        print(foods[i].tags);
         if (foods[i].popularity[m] > topScore && checkSorted(i, mr) == false) {
           topScore = foods[i].popularity[m];
           topIndex = i;
