@@ -104,71 +104,43 @@ function checkSorted(i, mr) {
   return false;
 }
 
-// function checkTags(ft, tags) {
-//   let fTags = ft;
-//
-//   let fits = true;
-//
-//   if (fTags.length > 0 && tags.length > 0) {
-//     for (let t of tags) {
-//       if (!fTags.includes(t)) {
-//         fits = false;
-//       }
-//     }
-//   }
-//
-//   return fits;
-// }
+function getTrends() {
 
-// function loadFoods() {
-//   let stem = 'https://api.nytimes.com/svc/search/v2/articlesearch.json';
-//   let key = 'TFkhMD2Ty8d03U6yGWv1USnBcxHjUA7W';
-//   let b = '20040101';
-//   let nResults = 5;
-//
-//   for (let i = 0; i < nResults; i++) {
-//     let url = stem + "?q=recipe" + '&fq=document_type:("recipe")' + '&page=' + i + '&begin_date' + b + '&api-key=' + key;
-//     loadJSON(url, gotFoods);
-//   }
-// }
-//
-// function loadRecipes() {
-//   let stem = 'https://api.nytimes.com/svc/search/v2/articlesearch.json';
-//   let key = 'TFkhMD2Ty8d03U6yGWv1USnBcxHjUA7W';
-//
-//   for (let food of foods) {
-//     let q = food;
-//     let b = '20040101';
-//     let url = stem + '?q=' + q + '&fq=document_type:("recipe")' + '&begin_date' + b + '&api-key=' + key;
-//
-//     loadJSON(url, gotNYT);
-//   }
-// }
-//
-// function gotFoods(data) {
-//   let d = data;
-//   print(d);
-// }
-//
-// function gotNYT(data) {
-//   let d = data;
-//   print(d);
-//   let recipes = [];
-//
-//   let articles = d.response.docs;
-//   for (let a of articles) {
-//     let head = a.headline.print_headline;
-//     let path = a.web_url;
-//     recipes.push([head, path]);
-//   }
-// }
+}
 
-// async function loadTrends() {
-//   const response  = await fetch('/api');
-//   const data = await response.json();
-//
-//   for (let item of data) {
-//     print('another one');
-//   }
-//   print(data);
-// }
+function expandDrawer(element) {
+    let calendars = document.getElementsByClassName("calendar");
+    let template = "";
+
+    // expand the right box based on month
+    if (element.classList.contains("jan")) {
+        template = "102px auto 300px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px 37px";
+    } else if (element.classList.contains("feb")) {
+        template = "102px auto 0px auto 300px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px 37px";
+    } else if (element.classList.contains("mar")) {
+        template = "102px auto 0px auto 0px auto 300px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px 37px";
+    } else if (element.classList.contains("apr")) {
+        template = "102px auto 0px auto 0px auto 0px auto 300px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px 37px";
+    } else if (element.classList.contains("may")) {
+        template = "102px auto 0px auto 0px auto 0px auto 0px auto 300px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px 37px";
+    } else if (element.classList.contains("jun")) {
+        template = "102px auto 0px auto 0px auto 0px auto 0px auto 0px auto 300px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px 37px";
+    } else if (element.classList.contains("jul")) {
+        template = "102px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 300px auto 0px auto 0px auto 0px auto 0px auto 0px 37px";
+    } else if (element.classList.contains("aug")) {
+        template = "102px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 300px auto 0px auto 0px auto 0px auto 0px 37px";
+    } else if (element.classList.contains("sep")) {
+        template = "102px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 300px auto 0px auto 0px auto 0px 37px";
+    } else if (element.classList.contains("oct")) {
+        template = "102px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 300px auto 0px auto 0px 37px";
+    } else if (element.classList.contains("nov")) {
+        template = "102px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 300px auto 0px 37px";
+    } else if (element.classList.contains("dec")) {
+        template = "102px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 300px 37px";
+    }
+
+    for (let i = 0; i < calendars.length; i++) {
+        calendars[i].style.gridTemplateColumns = template
+    }
+}
+>>>>>>> Stashed changes

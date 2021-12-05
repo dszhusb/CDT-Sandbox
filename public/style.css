@@ -44,8 +44,10 @@ body {
 .calendar {
   /* Display */
   display: grid;
-  grid-template-columns: 102px auto auto auto auto auto auto auto auto auto auto auto auto 37px;
+  grid-template-columns: 80px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px 80px;
   border-top: 1px solid black;
+  overflow: auto;
+  flex: 1 1 auto;
 }
 
 .calendar div {
@@ -53,7 +55,8 @@ body {
 }
 
 .cap {
-  height: 15px;
+    height: 45px;
+    text-align: center;
 }
 
 .axisLabel p {
