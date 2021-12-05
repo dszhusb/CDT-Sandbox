@@ -5,12 +5,16 @@ class Food {
     this.name = n;
     this.popularity = p;
     this.recipes = [];
+    this.tags = [];
   }
 
   addRecipe(r) {
     this.recipes.push(r);
   }
 
+  addTags(t) {
+    this.tags.push(t);
+  }
 }
 
 class Recipe {

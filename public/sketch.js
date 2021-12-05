@@ -8,7 +8,9 @@ function preload() {
 }
 
 function setup() {
-  establishRankings(['vegetarian']);
+  establishRankings([]);
+  print(foods);
+  print(months);
 }
 
 function draw() {
@@ -21,14 +23,13 @@ function loadFoods() {
 }
 
 function fillFoods(data) {
-  print(data);
 
   for (let f in data) {
     let n = data[f].food;
     let norm = data[f].normalized;
     let reg = data[f].popularity;
     let p = combinePopularity(reg, norm);
-    let nFood = new Food(n,p);
+    let nFood = new Food(n, p);
 
     for (let r in data[f].recipes) {
       let h = data[f].recipes[r].headline;
@@ -42,8 +43,25 @@ function fillFoods(data) {
       let nRecipe = new Recipe(h, u, i, ta, ti, y, c);
       nFood.addRecipe(nRecipe);
     }
+    consolidateTags(nFood);
     foods.push(nFood);
   }
+}
+
+function consolidateTags(food) {
+  let tList = [];
+
+  for (let r of food.recipes) {
+    if (typeof r.tags !== 'undefined') {
+      for (let t of r.tags) {
+        if (!tList.includes(t)) {
+          tList.push(t);
+        }
+      }
+    }
+  }
+
+  food.addTags(tList);
 }
 
 function combinePopularity(reg, norm) {
@@ -60,10 +78,11 @@ function establishRankings(tags) {
   for (let m = 0; m < 12; m++) {
     let mr = [];
 
-    while(mr.length < foods.length) {
+    while (mr.length < foods.length) {
       let topScore = -1;
       let topIndex = -1;
       for (let i = 0; i < foods.length; i++) {
+        print(foods[i].tags);
         if (foods[i].popularity[m] > topScore && checkSorted(i, mr) == false) {
           topScore = foods[i].popularity[m];
           topIndex = i;
@@ -74,21 +93,31 @@ function establishRankings(tags) {
 
     months.push(mr);
   }
-  print(months);
 }
 
 function checkSorted(i, mr) {
   for (let f of mr) {
     if (f == i) {
       return true;
-      print('caught');
     }
   }
   return false;
 }
 
-// function checkTags(food[i].tags, tags) {
+// function checkTags(ft, tags) {
+//   let fTags = ft;
 //
+//   let fits = true;
+//
+//   if (fTags.length > 0 && tags.length > 0) {
+//     for (let t of tags) {
+//       if (!fTags.includes(t)) {
+//         fits = false;
+//       }
+//     }
+//   }
+//
+//   return fits;
 // }
 
 // function loadFoods() {
