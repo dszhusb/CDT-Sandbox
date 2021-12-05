@@ -9,12 +9,33 @@ function preload() {
 
 function setup() {
   establishRankings([]);
-  print(foods);
-  print(months);
+  populateLists();
 }
 
 function draw() {
 
+}
+
+function populateLists() {
+  const mClasses = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+
+  for (let m = 0; m < months.length; m++) {
+    for (let i = 0; i < 40; i++) {
+      let fIndex = months[m][i];
+      let food = foods[fIndex];
+      let fName = food.name;
+
+      let newDiv = document.createElement("div");
+      let p = document.createElement("p");
+      p.append(fName);
+      newDiv.append(p);
+      newDiv.classList.add("foodItem");
+      newDiv.setAttribute("onclick","expandDrawer(this)");
+      // print(newDiv);
+
+      document.getElementById(mClasses[m] + ' food').appendChild(newDiv);
+    }
+  }
 }
 
 function loadFoods() {
@@ -78,11 +99,10 @@ function establishRankings(tags) {
   for (let m = 0; m < 12; m++) {
     let mr = [];
 
-    while (mr.length < foods.length) {
+    for (let j = 0; j < foods.length; j++) {
       let topScore = -1;
       let topIndex = -1;
       for (let i = 0; i < foods.length; i++) {
-        print(foods[i].tags);
         if (foods[i].popularity[m] > topScore && checkSorted(i, mr) == false) {
           topScore = foods[i].popularity[m];
           topIndex = i;
@@ -92,6 +112,15 @@ function establishRankings(tags) {
     }
 
     months.push(mr);
+  }
+
+  for (let m of months) {
+    for (let f of m) {
+      let fTags = foods[f].getTags();
+      if (!checkTags(fTags, tags)) {
+        m.splice(f, 1);
+      }
+    }
   }
 }
 
@@ -104,43 +133,49 @@ function checkSorted(i, mr) {
   return false;
 }
 
-function getTrends() {
+function checkTags(fTags, tags) {
+  let pass = true;
 
+  for (let t of tags) {
+    if (!fTags.includes(t)) {
+      pass = false;
+    }
+  }
+  return pass;
 }
 
 function expandDrawer(element) {
-    let calendars = document.getElementsByClassName("calendar");
-    let template = "";
+  let calendars = document.getElementsByClassName("calendar");
+  let template = "";
 
-    // expand the right box based on month
-    if (element.classList.contains("jan")) {
-        template = "102px auto 300px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px 37px";
-    } else if (element.classList.contains("feb")) {
-        template = "102px auto 0px auto 300px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px 37px";
-    } else if (element.classList.contains("mar")) {
-        template = "102px auto 0px auto 0px auto 300px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px 37px";
-    } else if (element.classList.contains("apr")) {
-        template = "102px auto 0px auto 0px auto 0px auto 300px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px 37px";
-    } else if (element.classList.contains("may")) {
-        template = "102px auto 0px auto 0px auto 0px auto 0px auto 300px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px 37px";
-    } else if (element.classList.contains("jun")) {
-        template = "102px auto 0px auto 0px auto 0px auto 0px auto 0px auto 300px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px 37px";
-    } else if (element.classList.contains("jul")) {
-        template = "102px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 300px auto 0px auto 0px auto 0px auto 0px auto 0px 37px";
-    } else if (element.classList.contains("aug")) {
-        template = "102px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 300px auto 0px auto 0px auto 0px auto 0px 37px";
-    } else if (element.classList.contains("sep")) {
-        template = "102px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 300px auto 0px auto 0px auto 0px 37px";
-    } else if (element.classList.contains("oct")) {
-        template = "102px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 300px auto 0px auto 0px 37px";
-    } else if (element.classList.contains("nov")) {
-        template = "102px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 300px auto 0px 37px";
-    } else if (element.classList.contains("dec")) {
-        template = "102px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 300px 37px";
-    }
+  // expand the right box based on month
+  if (element.classList.contains("jan")) {
+    template = "102px auto 300px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px 37px";
+  } else if (element.classList.contains("feb")) {
+    template = "102px auto 0px auto 300px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px 37px";
+  } else if (element.classList.contains("mar")) {
+    template = "102px auto 0px auto 0px auto 300px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px 37px";
+  } else if (element.classList.contains("apr")) {
+    template = "102px auto 0px auto 0px auto 0px auto 300px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px 37px";
+  } else if (element.classList.contains("may")) {
+    template = "102px auto 0px auto 0px auto 0px auto 0px auto 300px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px 37px";
+  } else if (element.classList.contains("jun")) {
+    template = "102px auto 0px auto 0px auto 0px auto 0px auto 0px auto 300px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px 37px";
+  } else if (element.classList.contains("jul")) {
+    template = "102px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 300px auto 0px auto 0px auto 0px auto 0px auto 0px 37px";
+  } else if (element.classList.contains("aug")) {
+    template = "102px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 300px auto 0px auto 0px auto 0px auto 0px 37px";
+  } else if (element.classList.contains("sep")) {
+    template = "102px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 300px auto 0px auto 0px auto 0px 37px";
+  } else if (element.classList.contains("oct")) {
+    template = "102px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 300px auto 0px auto 0px 37px";
+  } else if (element.classList.contains("nov")) {
+    template = "102px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 300px auto 0px 37px";
+  } else if (element.classList.contains("dec")) {
+    template = "102px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 300px 37px";
+  }
 
-    for (let i = 0; i < calendars.length; i++) {
-        calendars[i].style.gridTemplateColumns = template
-    }
+  for (let i = 0; i < calendars.length; i++) {
+    calendars[i].style.gridTemplateColumns = template
+  }
 }
->>>>>>> Stashed changes

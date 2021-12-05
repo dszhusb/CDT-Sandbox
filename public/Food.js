@@ -15,6 +15,10 @@ class Food {
   addTags(t) {
     this.tags.push(t);
   }
+
+  getTags() {
+    return this.tags;
+  }
 }
 
 class Recipe {

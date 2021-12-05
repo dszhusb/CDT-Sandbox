@@ -59,6 +59,15 @@ body {
     text-align: center;
 }
 
+.foodItem {
+
+}
+
+.foodItem p {
+  font-weight: semi-bold;
+  font-size: 14px;
+}
+
 .axisLabel p {
   text-align: right;
   font-size: 8.69px;
