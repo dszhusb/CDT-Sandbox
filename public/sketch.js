@@ -30,6 +30,7 @@ function populateLists() {
       p.append(fName);
       newDiv.append(p);
       newDiv.classList.add("foodItem");
+      newDiv.classList.add(mClasses[m]);
       newDiv.setAttribute("onclick","expandDrawer(this)");
       // print(newDiv);
 
