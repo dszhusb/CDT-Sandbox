@@ -8,12 +8,14 @@ function preload() {
 }
 
 function setup() {
-  establishRankings([]);
-  populateLists();
-}
-
-function draw() {
-
+    establishRankings([]);
+    populateLists();
+    try {
+        noCanvas();
+    } catch (e) {
+        print("No canvas found to remove");
+        print(e);
+    }
 }
 
 function populateLists() {
@@ -152,28 +154,124 @@ function expandDrawer(element) {
     // expand the right box based on month
     if (element.classList.contains("jan")) {
         template = "102px calc((100vw - 740px) / 12) 600px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px 38px";
+        for (let i = 0; i < 12; i++) {
+            document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
+            document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
+            document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
+        }
+        document.getElementsByClassName("slideout")[0].style.borderLeft = "1px solid black";
+        document.getElementsByClassName("slideout")[0].style.borderRight = "1px solid black";
+        document.getElementsByClassName("slideout")[0].style.borderBottom = "1px solid black";
     } else if (element.classList.contains("feb")) {
         template = "102px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 600px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px 38px";
+        for (let i = 0; i < 12; i++) {
+            document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
+            document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
+            document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
+        }
+        document.getElementsByClassName("slideout")[1].style.borderLeft = "1px solid black";
+        document.getElementsByClassName("slideout")[1].style.borderRight = "1px solid black";
+        document.getElementsByClassName("slideout")[1].style.borderBottom = "1px solid black";
     } else if (element.classList.contains("mar")) {
         template = "102px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 600px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px 38px";
+        for (let i = 0; i < 12; i++) {
+            document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
+            document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
+            document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
+        }
+        document.getElementsByClassName("slideout")[2].style.borderLeft = "1px solid black";
+        document.getElementsByClassName("slideout")[2].style.borderRight = "1px solid black";
+        document.getElementsByClassName("slideout")[2].style.borderBottom = "1px solid black";
     } else if (element.classList.contains("apr")) {
         template = "102px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 600px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px 38px";
+        for (let i = 0; i < 12; i++) {
+            document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
+            document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
+            document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
+        }
+        document.getElementsByClassName("slideout")[3].style.borderLeft = "1px solid black";
+        document.getElementsByClassName("slideout")[3].style.borderRight = "1px solid black";
+        document.getElementsByClassName("slideout")[3].style.borderBottom = "1px solid black";
     } else if (element.classList.contains("may")) {
         template = "102px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 600px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px 38px";
+        for (let i = 0; i < 12; i++) {
+            document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
+            document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
+            document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
+        }
+        document.getElementsByClassName("slideout")[4].style.borderLeft = "1px solid black";
+        document.getElementsByClassName("slideout")[4].style.borderRight = "1px solid black";
+        document.getElementsByClassName("slideout")[4].style.borderBottom = "1px solid black";
     } else if (element.classList.contains("jun")) {
         template = "102px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 600px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px 38px";
+        for (let i = 0; i < 12; i++) {
+            document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
+            document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
+            document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
+        }
+        document.getElementsByClassName("slideout")[5].style.borderLeft = "1px solid black";
+        document.getElementsByClassName("slideout")[5].style.borderRight = "1px solid black";
+        document.getElementsByClassName("slideout")[5].style.borderBottom = "1px solid black";
     } else if (element.classList.contains("jul")) {
         template = "102px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 600px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px 38px";
+        for (let i = 0; i < 12; i++) {
+            document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
+            document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
+            document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
+        }
+        document.getElementsByClassName("slideout")[6].style.borderLeft = "1px solid black";
+        document.getElementsByClassName("slideout")[6].style.borderRight = "1px solid black";
+        document.getElementsByClassName("slideout")[6].style.borderBottom = "1px solid black";
     } else if (element.classList.contains("aug")) {
         template = "102px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 600px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px 38px";
+        for (let i = 0; i < 12; i++) {
+            document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
+            document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
+            document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
+        }
+        document.getElementsByClassName("slideout")[7].style.borderLeft = "1px solid black";
+        document.getElementsByClassName("slideout")[7].style.borderRight = "1px solid black";
+        document.getElementsByClassName("slideout")[7].style.borderBottom = "1px solid black";
     } else if (element.classList.contains("sep")) {
         template = "102px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 600px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px 38px";
+        for (let i = 0; i < 12; i++) {
+            document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
+            document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
+            document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
+        }
+        document.getElementsByClassName("slideout")[8].style.borderLeft = "1px solid black";
+        document.getElementsByClassName("slideout")[8].style.borderRight = "1px solid black";
+        document.getElementsByClassName("slideout")[8].style.borderBottom = "1px solid black";
     } else if (element.classList.contains("oct")) {
         template = "102px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 600px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px 38px";
+        for (let i = 0; i < 12; i++) {
+            document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
+            document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
+            document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
+        }
+        document.getElementsByClassName("slideout")[9].style.borderLeft = "1px solid black";
+        document.getElementsByClassName("slideout")[9].style.borderRight = "1px solid black";
+        document.getElementsByClassName("slideout")[9].style.borderBottom = "1px solid black";
     } else if (element.classList.contains("nov")) {
         template = "102px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 600px calc((100vw - 740px) / 12) 0px 38px";
+        for (let i = 0; i < 12; i++) {
+            document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
+            document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
+            document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
+        }
+        document.getElementsByClassName("slideout")[10].style.borderLeft = "1px solid black";
+        document.getElementsByClassName("slideout")[10].style.borderRight = "1px solid black";
+        document.getElementsByClassName("slideout")[10].style.borderBottom = "1px solid black";
     } else if (element.classList.contains("dec")) {
         template = "102px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 600px 38px";
+        for (let i = 0; i < 12; i++) {
+            document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
+            document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
+            document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
+        }
+        document.getElementsByClassName("slideout")[11].style.borderLeft = "1px solid black";
+        document.getElementsByClassName("slideout")[11].style.borderRight = "1px solid black";
+        document.getElementsByClassName("slideout")[11].style.borderBottom = "1px solid black";
     }
 
   for (let i = 0; i < calendars.length; i++) {
