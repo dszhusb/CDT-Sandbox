@@ -51,6 +51,7 @@ body {
     /* Display */
     border-top: 1px solid black;
     height: 200px;
+    width: 100%;
     overflow: auto;
 }
 
@@ -75,12 +76,12 @@ body {
 
 .column {
     border-left: 1px solid #D2D2D2;
+    overflow: hidden;
 }
 
 .slideout {
     height: 200px;
     background-color: white;
-    position: sticky;
 }
 
 .foodItem {
