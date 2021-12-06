@@ -185,121 +185,181 @@ function expandDrawer(element) {
 
     // expand the right box based on month
     if (element.classList.contains("jan")) {
-        template = "102px calc((100vw - 740px) / 12) 600px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px 38px";
+        template = "102px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px 38px";
         for (let i = 0; i < 12; i++) {
             document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
             document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
             document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
+            if (i > 1) {
+                document.getElementsByClassName("column")[i].childNodes[1].style.display = "none";
+            } else {
+                document.getElementsByClassName("column")[i].childNodes[1].style.display = "inline";
+            }
         }
         document.getElementsByClassName("slideout")[0].style.borderLeft = "1px solid black";
         document.getElementsByClassName("slideout")[0].style.borderRight = "1px solid black";
         document.getElementsByClassName("slideout")[0].style.borderBottom = "1px solid black";
     } else if (element.classList.contains("feb")) {
-        template = "102px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 600px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px 38px";
+        template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px 38px";
         for (let i = 0; i < 12; i++) {
             document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
             document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
             document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
+            if (i > 2 || i < 1) {
+                document.getElementsByClassName("column")[i].childNodes[1].style.display = "none";
+            } else {
+                document.getElementsByClassName("column")[i].childNodes[1].style.display = "inline";
+            }
         }
         document.getElementsByClassName("slideout")[1].style.borderLeft = "1px solid black";
         document.getElementsByClassName("slideout")[1].style.borderRight = "1px solid black";
         document.getElementsByClassName("slideout")[1].style.borderBottom = "1px solid black";
     } else if (element.classList.contains("mar")) {
-        template = "102px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 600px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px 38px";
+        template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px 38px";
         for (let i = 0; i < 12; i++) {
             document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
             document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
             document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
+            if (i > 3 || i < 2) {
+                document.getElementsByClassName("column")[i].childNodes[1].style.display = "none";
+            } else {
+                document.getElementsByClassName("column")[i].childNodes[1].style.display = "inline";
+            }
         }
         document.getElementsByClassName("slideout")[2].style.borderLeft = "1px solid black";
         document.getElementsByClassName("slideout")[2].style.borderRight = "1px solid black";
         document.getElementsByClassName("slideout")[2].style.borderBottom = "1px solid black";
     } else if (element.classList.contains("apr")) {
-        template = "102px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 600px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px 38px";
+        template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px 38px";
         for (let i = 0; i < 12; i++) {
             document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
             document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
             document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
+            if (i > 4 || i < 3) {
+                document.getElementsByClassName("column")[i].childNodes[1].style.display = "none";
+            } else {
+                document.getElementsByClassName("column")[i].childNodes[1].style.display = "inline";
+            }
         }
         document.getElementsByClassName("slideout")[3].style.borderLeft = "1px solid black";
         document.getElementsByClassName("slideout")[3].style.borderRight = "1px solid black";
         document.getElementsByClassName("slideout")[3].style.borderBottom = "1px solid black";
     } else if (element.classList.contains("may")) {
-        template = "102px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 600px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px 38px";
+        template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px 38px";
         for (let i = 0; i < 12; i++) {
             document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
             document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
             document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
+            if (i > 5 || i < 4) {
+                document.getElementsByClassName("column")[i].childNodes[1].style.display = "none";
+            } else {
+                document.getElementsByClassName("column")[i].childNodes[1].style.display = "inline";
+            }
         }
         document.getElementsByClassName("slideout")[4].style.borderLeft = "1px solid black";
         document.getElementsByClassName("slideout")[4].style.borderRight = "1px solid black";
         document.getElementsByClassName("slideout")[4].style.borderBottom = "1px solid black";
     } else if (element.classList.contains("jun")) {
-        template = "102px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 600px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px 38px";
+        template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px 38px";
         for (let i = 0; i < 12; i++) {
             document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
             document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
             document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
+            if (i > 6 || i < 5) {
+                document.getElementsByClassName("column")[i].childNodes[1].style.display = "none";
+            } else {
+                document.getElementsByClassName("column")[i].childNodes[1].style.display = "inline";
+            }
         }
         document.getElementsByClassName("slideout")[5].style.borderLeft = "1px solid black";
         document.getElementsByClassName("slideout")[5].style.borderRight = "1px solid black";
         document.getElementsByClassName("slideout")[5].style.borderBottom = "1px solid black";
     } else if (element.classList.contains("jul")) {
-        template = "102px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 600px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px 38px";
+        template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px 38px";
         for (let i = 0; i < 12; i++) {
             document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
             document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
             document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
+            if (i > 7 || i < 6) {
+                document.getElementsByClassName("column")[i].childNodes[1].style.display = "none";
+            } else {
+                document.getElementsByClassName("column")[i].childNodes[1].style.display = "inline";
+            }
         }
         document.getElementsByClassName("slideout")[6].style.borderLeft = "1px solid black";
         document.getElementsByClassName("slideout")[6].style.borderRight = "1px solid black";
         document.getElementsByClassName("slideout")[6].style.borderBottom = "1px solid black";
     } else if (element.classList.contains("aug")) {
-        template = "102px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 600px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px 38px";
+        template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px 38px";
         for (let i = 0; i < 12; i++) {
             document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
             document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
             document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
+            if (i > 8 || i < 7) {
+                document.getElementsByClassName("column")[i].childNodes[1].style.display = "none";
+            } else {
+                document.getElementsByClassName("column")[i].childNodes[1].style.display = "inline";
+            }
         }
         document.getElementsByClassName("slideout")[7].style.borderLeft = "1px solid black";
         document.getElementsByClassName("slideout")[7].style.borderRight = "1px solid black";
         document.getElementsByClassName("slideout")[7].style.borderBottom = "1px solid black";
     } else if (element.classList.contains("sep")) {
-        template = "102px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 600px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px 38px";
+        template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px 38px";
         for (let i = 0; i < 12; i++) {
             document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
             document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
             document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
+            if (i > 9 || i < 8) {
+                document.getElementsByClassName("column")[i].childNodes[1].style.display = "none";
+            } else {
+                document.getElementsByClassName("column")[i].childNodes[1].style.display = "inline";
+            }
         }
         document.getElementsByClassName("slideout")[8].style.borderLeft = "1px solid black";
         document.getElementsByClassName("slideout")[8].style.borderRight = "1px solid black";
         document.getElementsByClassName("slideout")[8].style.borderBottom = "1px solid black";
     } else if (element.classList.contains("oct")) {
-        template = "102px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 600px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px 38px";
+        template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px calc((100vw - 740px) / 14) 0px 38px";
         for (let i = 0; i < 12; i++) {
             document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
             document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
             document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
+            if (i > 10 || i < 9) {
+                document.getElementsByClassName("column")[i].childNodes[1].style.display = "none";
+            } else {
+                document.getElementsByClassName("column")[i].childNodes[1].style.display = "inline";
+            }
         }
         document.getElementsByClassName("slideout")[9].style.borderLeft = "1px solid black";
         document.getElementsByClassName("slideout")[9].style.borderRight = "1px solid black";
         document.getElementsByClassName("slideout")[9].style.borderBottom = "1px solid black";
     } else if (element.classList.contains("nov")) {
-        template = "102px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 600px calc((100vw - 740px) / 12) 0px 38px";
+        template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px 38px";
         for (let i = 0; i < 12; i++) {
             document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
             document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
             document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
+            if (i < 10) {
+                document.getElementsByClassName("column")[i].childNodes[1].style.display = "none";
+            } else {
+                document.getElementsByClassName("column")[i].childNodes[1].style.display = "inline";
+            }
         }
         document.getElementsByClassName("slideout")[10].style.borderLeft = "1px solid black";
         document.getElementsByClassName("slideout")[10].style.borderRight = "1px solid black";
         document.getElementsByClassName("slideout")[10].style.borderBottom = "1px solid black";
     } else if (element.classList.contains("dec")) {
-        template = "102px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 0px calc((100vw - 740px) / 12) 600px 38px";
+        template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px 38px";
         for (let i = 0; i < 12; i++) {
             document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
             document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
             document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
+            if (i < 11) {
+                document.getElementsByClassName("column")[i].childNodes[1].style.display = "none";
+            } else {
+                document.getElementsByClassName("column")[i].childNodes[1].style.display = "inline";
+            }
         }
         document.getElementsByClassName("slideout")[11].style.borderLeft = "1px solid black";
         document.getElementsByClassName("slideout")[11].style.borderRight = "1px solid black";
