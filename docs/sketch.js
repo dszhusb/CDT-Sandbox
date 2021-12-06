@@ -18,6 +18,10 @@ function setup() {
     }
 }
 
+function draw() {
+
+}
+
 function populateLists() {
   const mClasses = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
 
@@ -25,7 +29,7 @@ function populateLists() {
     for (let i = 0; i < 40; i++) {
       let fIndex = months[m][i];
       let food = foods[fIndex];
-      let fName = food.name;
+      let fName = caseCorrect(food.name);
 
       let newDiv = document.createElement("div");
       let p = document.createElement("p");
@@ -39,6 +43,33 @@ function populateLists() {
       document.getElementById(mClasses[m] + ' food').appendChild(newDiv);
     }
   }
+}
+
+function populateRecipes(i) {
+  let recipes = foods[i].recipes;
+
+  for (let r of recipes) {
+
+    let newDiv = document.createElement("div");
+
+    let img = document.createElement("img");
+    img.setAttribute("src", r.image);
+
+    let p = document.createElement("p");
+    p.append(r.name);
+
+    newDiv.append(img);
+    newDiv.append(p);
+  }
+}
+
+function caseCorrect(str) {
+  let ccStr = '';
+  let words = str.split(" ");
+  for (let word of words) {
+    ccStr += word.charAt(0).toUpperCase() + word.slice(1) + " "
+  }
+  return ccStr;
 }
 
 function loadFoods() {

@@ -7,7 +7,7 @@ const fs = require('fs');
 
 const app = express();
 app.listen(3000, () => console.log('listening at 3000'));
-app.use(express.static('public'));
+app.use(express.static('docs'));
 
 const database = new Datastore('database.db');
 database.loadDatabase();
