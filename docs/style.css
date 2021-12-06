@@ -48,9 +48,10 @@ body {
 }
 
 .calendar {
-  /* Display */
-  border-top: 1px solid black;
-  height: 200px;
+    /* Display */
+    border-top: 1px solid black;
+    height: 200px;
+    overflow: auto;
 }
 
 .months {
@@ -74,7 +75,6 @@ body {
 
 .column {
     border-left: 1px solid #D2D2D2;
-    overflow: auto;
 }
 
 .slideout {
