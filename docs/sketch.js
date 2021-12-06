@@ -2,6 +2,10 @@
 
 let foods = [];
 let months = [];
+let activeFilters = [];
+
+let filterBar = document.getElementById("filters");
+let sticky = filterBar.offsetTop;
 
 function preload() {
   loadFoods();
@@ -54,7 +58,8 @@ function populateRecipes(i) {
     let newDiv = document.createElement("div");
 
     let img = document.createElement("img");
-    img.setAttribute("src", r.image);
+    let imgUrl = 'nyt.com' + r.image;
+    img.setAttribute("src", imgUrl);
 
     let p = document.createElement("p");
     p.append(r.name);
@@ -62,6 +67,21 @@ function populateRecipes(i) {
     newDiv.append(img);
     newDiv.append(p);
   }
+}
+
+function updateFilters(filter) {
+  if (!activeFilters.includes(filter)) {
+    activeFilters.push(filter);
+  } else {
+    for (let i = 0; i < activeFilters.length; i++) {
+      if (activeFilters[i] === filter) {
+        activeFilters.splice(i, 1);
+      }
+    }
+  }
+  print(activeFilters);
+  establishRankings(activeFilters);
+  populateLists();
 }
 
 function caseCorrect(str) {
@@ -116,7 +136,6 @@ function consolidateTags(food) {
       }
     }
   }
-
   food.addTags(tList);
 }
 
@@ -130,6 +149,7 @@ function combinePopularity(reg, norm) {
 }
 
 function establishRankings(tags) {
+  months = [];
 
   for (let m = 0; m < 12; m++) {
     let mr = [];
@@ -178,6 +198,17 @@ function checkTags(fTags, tags) {
   }
   return pass;
 }
+
+// window.onscroll = function() {filterScroll()};
+
+// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+// function filterScroll() {
+//   if (window.pageYOffset >= 0) {
+//     filters.classList.add("sticky")
+//   } else {
+//     filters.classList.remove("sticky");
+//   }
+// }
 
 function expandDrawer(element) {
     let calendars = document.getElementsByClassName("grid");
