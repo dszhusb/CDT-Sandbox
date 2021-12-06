@@ -44,7 +44,7 @@ body {
 
 .grid {
     display: grid;
-    grid-template-columns: 80px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px 80px;
+    grid-template-columns: 102px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px 38px;
 }
 
 .calendar {
@@ -61,9 +61,18 @@ body {
 
 .foodItem {
   text-align: left;
-  padding-left: 6px;
   font-family: 'IBM Plex Mono', monospace;
   font-size: 14px;
+  width: 90%;
+  margin-left: 5%;
+  overflow: hidden;
+}
+
+.foodItem p {
+    font-weight: 800;
+    font-size: 14px;
+    margin-top: 6px;
+    margin-bottom: 6px;
 }
 
 .cap {
@@ -76,21 +85,12 @@ body {
 
 .column {
     border-left: 1px solid #D2D2D2;
-    overflow: hidden;
+    text-align: center;
 }
 
 .slideout {
     height: 200px;
     background-color: white;
-}
-
-.foodItem {
-
-}
-
-.foodItem p {
-  font-weight: 800;
-  font-size: 14px;
 }
 
 .axisLabel p {
