@@ -26,7 +26,7 @@ function populateLists() {
   const mClasses = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
 
   for (let m = 0; m < months.length; m++) {
-    for (let i = 0; i < 40; i++) {
+    for (let i = 0; i < 20; i++) {
       let fIndex = months[m][i];
       let food = foods[fIndex];
       let fName = caseCorrect(food.name);
@@ -38,6 +38,7 @@ function populateLists() {
       newDiv.classList.add("foodItem");
       newDiv.classList.add(mClasses[m]);
       newDiv.setAttribute("onclick","expandDrawer(this)");
+      newDiv.style.opacity = "" + constrain(map(i, 0, 12, 1, 0.2), 0.2, 1);
       // print(newDiv);
 
       document.getElementById(mClasses[m] + ' food').appendChild(newDiv);
