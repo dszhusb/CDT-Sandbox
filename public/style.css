@@ -44,14 +44,13 @@ body {
 
 .grid {
     display: grid;
-    grid-template-columns: 102px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px 38px;
+    grid-template-columns: 80px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px auto 0px 80px;
 }
 
 .calendar {
-    /* Display */
-    border-top: 1px solid black;
-    height: 600px;
-    width: 100%;
+  /* Display */
+  border-top: 1px solid black;
+  height: 200px;
 }
 
 .months {
@@ -60,18 +59,9 @@ body {
 
 .foodItem {
   text-align: left;
+  padding-left: 6px;
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 13px;
-  width: 90%;
-  margin-left: 5%;
-  overflow: hidden;
-}
-
-.foodItem p {
-    font-weight: 800;
-    font-size: 13px;
-    margin-top: 14px;
-    margin-bottom: 8px;
+  font-size: 14px;
 }
 
 .cap {
@@ -80,52 +70,28 @@ body {
     font-size: 14px;
     font-weight: 800;
     padding-left: 8px;
-    padding-bottom: .2em;
 }
 
 .column {
     border-left: 1px solid #D2D2D2;
-    text-align: center;
     overflow: auto;
 }
 
 .slideout {
-    height: 600px;
-    background-color: white;
+    height: 200px;
+    /* background-color: white; */
+    position: sticky;
 }
 
-#filters {
-  overflow: hidden;
+.foodItem {
+
 }
 
-#filters div {
-  float: right;
-  display: block;
-  text-align: center;
-  padding: 14px;
-  text-decoration: none;
-}
-
-.sticky {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-
-.sticky + .content {
-  padding-top: 1000px;
-}
-
-
-
-<<<<<<< Updated upstream
-=======
 .foodItem p {
   font-weight: 800;
   font-size: 14px;
 }
 
->>>>>>> Stashed changes
 .axisLabel p {
   text-align: right;
   font-size: 8.69px;
