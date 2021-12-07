@@ -57,24 +57,49 @@ function populateRecipes(element, foodName) {
     console.log(food);
   let recipes = food.recipes;
 
+  let recipeDiv = document.createElement("div");
+  recipeDiv.classList.add("recipes")
   for (let r of recipes) {
 
     let newDiv = document.createElement("div");
 
     let img = document.createElement("img");
     let imgUrl = 'https://nytimes.com/' + r.image;
-    img.setAttribute("src", imgUrl);
+    if (r.image) {
+        img.setAttribute("src", imgUrl);
+    }
 
     let p = document.createElement("p");
     p.append(r.headline);
 
-      if (r.image) {
-          newDiv.append(img);
-      }
+    if (r.image) {
+        newDiv.append(img);
+    }
     newDiv.append(p);
 
-    element.append(newDiv);
+    recipeDiv.append(newDiv);
   }
+
+  let infoDiv = document.createElement("div");
+  infoDiv.classList.add("info");
+  populateRecipeInfo(infoDiv, recipes[0]);
+
+  element.append(recipeDiv);
+  element.append(infoDiv);
+}
+
+function populateRecipeInfo(element, recipe) {
+    let title = document.createElement("h3");
+    title.append(recipe.headline);
+    let tags = document.createElement("ul");
+    for (let i = 0; recipe.tags && i < recipe.tags.length; i++) {
+        let tag = document.createElement("li");
+        tag.append(recipe.tags[i]);
+        tags.append(tag);
+    }
+
+    element.append(title);
+    element.append(tags);
 }
 
 function updateFilters(filter) {
