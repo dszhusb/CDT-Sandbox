@@ -8,7 +8,7 @@ let filterBar = document.getElementById("filters");
 let sticky = filterBar.offsetTop;
 
 function preload() {
-  loadFoods();
+    loadFoods();
 }
 
 function setup() {
@@ -23,7 +23,6 @@ function setup() {
 }
 
 function draw() {
-
 }
 
 function populateLists() {
@@ -199,6 +198,14 @@ function checkTags(fTags, tags) {
   return pass;
 }
 
+function syncScroll(column) {
+    var columns = document.getElementsByClassName("column");
+
+    for (let i = 0; i < columns.length; i++) {
+        columns[i].scrollTop = column.scrollTop;
+    }
+}
+
 // window.onscroll = function() {filterScroll()};
 
 // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
@@ -213,6 +220,7 @@ function checkTags(fTags, tags) {
 function expandDrawer(element) {
     let calendars = document.getElementsByClassName("grid");
     let template = "";
+    let savedScroll = element.parentElement.parentElement.scrollTop;
 
     // expand the right box based on month
     if (element.classList.contains("jan")) {
@@ -222,9 +230,9 @@ function expandDrawer(element) {
             document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
             document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
             if (i > 1) {
-                document.getElementsByClassName("column")[i].childNodes[1].style.display = "none";
+                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 0;
             } else {
-                document.getElementsByClassName("column")[i].childNodes[1].style.display = "inline";
+                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 1;
             }
         }
         document.getElementsByClassName("slideout")[0].style.borderLeft = "1px solid black";
@@ -237,9 +245,9 @@ function expandDrawer(element) {
             document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
             document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
             if (i > 2 || i < 1) {
-                document.getElementsByClassName("column")[i].childNodes[1].style.display = "none";
+                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 0;
             } else {
-                document.getElementsByClassName("column")[i].childNodes[1].style.display = "inline";
+                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 1;
             }
         }
         document.getElementsByClassName("slideout")[1].style.borderLeft = "1px solid black";
@@ -252,9 +260,9 @@ function expandDrawer(element) {
             document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
             document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
             if (i > 3 || i < 2) {
-                document.getElementsByClassName("column")[i].childNodes[1].style.display = "none";
+                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 0;
             } else {
-                document.getElementsByClassName("column")[i].childNodes[1].style.display = "inline";
+                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 1;
             }
         }
         document.getElementsByClassName("slideout")[2].style.borderLeft = "1px solid black";
@@ -267,9 +275,9 @@ function expandDrawer(element) {
             document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
             document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
             if (i > 4 || i < 3) {
-                document.getElementsByClassName("column")[i].childNodes[1].style.display = "none";
+                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 0;
             } else {
-                document.getElementsByClassName("column")[i].childNodes[1].style.display = "inline";
+                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 1;
             }
         }
         document.getElementsByClassName("slideout")[3].style.borderLeft = "1px solid black";
@@ -282,9 +290,9 @@ function expandDrawer(element) {
             document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
             document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
             if (i > 5 || i < 4) {
-                document.getElementsByClassName("column")[i].childNodes[1].style.display = "none";
+                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 0;
             } else {
-                document.getElementsByClassName("column")[i].childNodes[1].style.display = "inline";
+                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 1;
             }
         }
         document.getElementsByClassName("slideout")[4].style.borderLeft = "1px solid black";
@@ -297,9 +305,9 @@ function expandDrawer(element) {
             document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
             document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
             if (i > 6 || i < 5) {
-                document.getElementsByClassName("column")[i].childNodes[1].style.display = "none";
+                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 0;
             } else {
-                document.getElementsByClassName("column")[i].childNodes[1].style.display = "inline";
+                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 1;
             }
         }
         document.getElementsByClassName("slideout")[5].style.borderLeft = "1px solid black";
@@ -312,9 +320,9 @@ function expandDrawer(element) {
             document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
             document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
             if (i > 7 || i < 6) {
-                document.getElementsByClassName("column")[i].childNodes[1].style.display = "none";
+                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 0;
             } else {
-                document.getElementsByClassName("column")[i].childNodes[1].style.display = "inline";
+                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 1;
             }
         }
         document.getElementsByClassName("slideout")[6].style.borderLeft = "1px solid black";
@@ -327,9 +335,9 @@ function expandDrawer(element) {
             document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
             document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
             if (i > 8 || i < 7) {
-                document.getElementsByClassName("column")[i].childNodes[1].style.display = "none";
+                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 0;
             } else {
-                document.getElementsByClassName("column")[i].childNodes[1].style.display = "inline";
+                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 1;
             }
         }
         document.getElementsByClassName("slideout")[7].style.borderLeft = "1px solid black";
@@ -342,9 +350,9 @@ function expandDrawer(element) {
             document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
             document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
             if (i > 9 || i < 8) {
-                document.getElementsByClassName("column")[i].childNodes[1].style.display = "none";
+                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 0;
             } else {
-                document.getElementsByClassName("column")[i].childNodes[1].style.display = "inline";
+                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 1;
             }
         }
         document.getElementsByClassName("slideout")[8].style.borderLeft = "1px solid black";
@@ -357,9 +365,9 @@ function expandDrawer(element) {
             document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
             document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
             if (i > 10 || i < 9) {
-                document.getElementsByClassName("column")[i].childNodes[1].style.display = "none";
+                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 0;
             } else {
-                document.getElementsByClassName("column")[i].childNodes[1].style.display = "inline";
+                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 1;
             }
         }
         document.getElementsByClassName("slideout")[9].style.borderLeft = "1px solid black";
@@ -372,9 +380,9 @@ function expandDrawer(element) {
             document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
             document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
             if (i < 10) {
-                document.getElementsByClassName("column")[i].childNodes[1].style.display = "none";
+                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 0;
             } else {
-                document.getElementsByClassName("column")[i].childNodes[1].style.display = "inline";
+                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 1;
             }
         }
         document.getElementsByClassName("slideout")[10].style.borderLeft = "1px solid black";
@@ -387,9 +395,9 @@ function expandDrawer(element) {
             document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
             document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
             if (i < 11) {
-                document.getElementsByClassName("column")[i].childNodes[1].style.display = "none";
+                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 0;
             } else {
-                document.getElementsByClassName("column")[i].childNodes[1].style.display = "inline";
+                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 1;
             }
         }
         document.getElementsByClassName("slideout")[11].style.borderLeft = "1px solid black";
@@ -397,7 +405,12 @@ function expandDrawer(element) {
         document.getElementsByClassName("slideout")[11].style.borderBottom = "1px solid black";
     }
 
-  for (let i = 0; i < calendars.length; i++) {
-    calendars[i].style.gridTemplateColumns = template
-  }
+    for (let i = 0; i < calendars.length; i++) {
+        calendars[i].style.gridTemplateColumns = template
+    }
+    //let columns = document.getElementsByClassName("column");
+    //for (let j = 0; j < columns.length; j++) {
+    //    columns[j].scrollTop = savedScroll;
+    //    console.log(savedScroll);
+    //}
 }

@@ -86,7 +86,13 @@ body {
 .column {
     border-left: 1px solid #D2D2D2;
     text-align: center;
-    overflow: auto;
+    overflow: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.column::-webkit-scrollbar {
+    display: none;
 }
 
 .slideout {
