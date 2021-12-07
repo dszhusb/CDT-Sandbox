@@ -49,22 +49,31 @@ function populateLists() {
   }
 }
 
-function populateRecipes(i) {
-  let recipes = foods[i].recipes;
+function populateRecipes(element, foodName) {
+    let food;
+    for (let i = 0; i < foods.length; i++) {
+        if (foods[i].name == foodName) food = foods[i];
+    }
+    console.log(food);
+  let recipes = food.recipes;
 
   for (let r of recipes) {
 
     let newDiv = document.createElement("div");
 
     let img = document.createElement("img");
-    let imgUrl = 'nyt.com' + r.image;
+    let imgUrl = 'https://nytimes.com/' + r.image;
     img.setAttribute("src", imgUrl);
 
     let p = document.createElement("p");
-    p.append(r.name);
+    p.append(r.headline);
 
-    newDiv.append(img);
+      if (r.image) {
+          newDiv.append(img);
+      }
     newDiv.append(p);
+
+    element.append(newDiv);
   }
 }
 
@@ -220,197 +229,67 @@ function syncScroll(column) {
 function expandDrawer(element) {
     let calendars = document.getElementsByClassName("grid");
     let template = "";
-    let savedScroll = element.parentElement.parentElement.scrollTop;
+
+    for (let i = 0; i < 12; i++) {
+        document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
+        document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
+        document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
+        while (document.getElementsByClassName("slideout")[i].firstChild) {
+            document.getElementsByClassName("slideout")[i].removeChild(document.getElementsByClassName("slideout")[i].firstChild);
+        }
+        document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 0;
+    }
 
     // expand the right box based on month
+    let index = 0;
     if (element.classList.contains("jan")) {
         template = "102px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px 38px";
-        for (let i = 0; i < 12; i++) {
-            document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
-            document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
-            document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
-            if (i > 1) {
-                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 0;
-            } else {
-                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 1;
-            }
-        }
-        document.getElementsByClassName("slideout")[0].style.borderLeft = "1px solid black";
-        document.getElementsByClassName("slideout")[0].style.borderRight = "1px solid black";
-        document.getElementsByClassName("slideout")[0].style.borderBottom = "1px solid black";
+        index = 0;
     } else if (element.classList.contains("feb")) {
         template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px 38px";
-        for (let i = 0; i < 12; i++) {
-            document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
-            document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
-            document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
-            if (i > 2 || i < 1) {
-                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 0;
-            } else {
-                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 1;
-            }
-        }
-        document.getElementsByClassName("slideout")[1].style.borderLeft = "1px solid black";
-        document.getElementsByClassName("slideout")[1].style.borderRight = "1px solid black";
-        document.getElementsByClassName("slideout")[1].style.borderBottom = "1px solid black";
+        index = 1;
     } else if (element.classList.contains("mar")) {
         template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px 38px";
-        for (let i = 0; i < 12; i++) {
-            document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
-            document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
-            document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
-            if (i > 3 || i < 2) {
-                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 0;
-            } else {
-                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 1;
-            }
-        }
-        document.getElementsByClassName("slideout")[2].style.borderLeft = "1px solid black";
-        document.getElementsByClassName("slideout")[2].style.borderRight = "1px solid black";
-        document.getElementsByClassName("slideout")[2].style.borderBottom = "1px solid black";
+        index = 2;
     } else if (element.classList.contains("apr")) {
         template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px 38px";
-        for (let i = 0; i < 12; i++) {
-            document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
-            document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
-            document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
-            if (i > 4 || i < 3) {
-                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 0;
-            } else {
-                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 1;
-            }
-        }
-        document.getElementsByClassName("slideout")[3].style.borderLeft = "1px solid black";
-        document.getElementsByClassName("slideout")[3].style.borderRight = "1px solid black";
-        document.getElementsByClassName("slideout")[3].style.borderBottom = "1px solid black";
+        index = 3;
     } else if (element.classList.contains("may")) {
         template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px 38px";
-        for (let i = 0; i < 12; i++) {
-            document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
-            document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
-            document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
-            if (i > 5 || i < 4) {
-                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 0;
-            } else {
-                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 1;
-            }
-        }
-        document.getElementsByClassName("slideout")[4].style.borderLeft = "1px solid black";
-        document.getElementsByClassName("slideout")[4].style.borderRight = "1px solid black";
-        document.getElementsByClassName("slideout")[4].style.borderBottom = "1px solid black";
+        index = 4;
     } else if (element.classList.contains("jun")) {
         template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px 38px";
-        for (let i = 0; i < 12; i++) {
-            document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
-            document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
-            document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
-            if (i > 6 || i < 5) {
-                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 0;
-            } else {
-                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 1;
-            }
-        }
-        document.getElementsByClassName("slideout")[5].style.borderLeft = "1px solid black";
-        document.getElementsByClassName("slideout")[5].style.borderRight = "1px solid black";
-        document.getElementsByClassName("slideout")[5].style.borderBottom = "1px solid black";
+        index = 5;
     } else if (element.classList.contains("jul")) {
         template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px 38px";
-        for (let i = 0; i < 12; i++) {
-            document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
-            document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
-            document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
-            if (i > 7 || i < 6) {
-                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 0;
-            } else {
-                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 1;
-            }
-        }
-        document.getElementsByClassName("slideout")[6].style.borderLeft = "1px solid black";
-        document.getElementsByClassName("slideout")[6].style.borderRight = "1px solid black";
-        document.getElementsByClassName("slideout")[6].style.borderBottom = "1px solid black";
+        index = 6;
     } else if (element.classList.contains("aug")) {
         template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px 38px";
-        for (let i = 0; i < 12; i++) {
-            document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
-            document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
-            document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
-            if (i > 8 || i < 7) {
-                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 0;
-            } else {
-                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 1;
-            }
-        }
-        document.getElementsByClassName("slideout")[7].style.borderLeft = "1px solid black";
-        document.getElementsByClassName("slideout")[7].style.borderRight = "1px solid black";
-        document.getElementsByClassName("slideout")[7].style.borderBottom = "1px solid black";
+        index = 7;
     } else if (element.classList.contains("sep")) {
         template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px 38px";
-        for (let i = 0; i < 12; i++) {
-            document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
-            document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
-            document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
-            if (i > 9 || i < 8) {
-                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 0;
-            } else {
-                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 1;
-            }
-        }
-        document.getElementsByClassName("slideout")[8].style.borderLeft = "1px solid black";
-        document.getElementsByClassName("slideout")[8].style.borderRight = "1px solid black";
-        document.getElementsByClassName("slideout")[8].style.borderBottom = "1px solid black";
+        index = 8;
     } else if (element.classList.contains("oct")) {
         template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px calc((100vw - 740px) / 14) 0px 38px";
-        for (let i = 0; i < 12; i++) {
-            document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
-            document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
-            document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
-            if (i > 10 || i < 9) {
-                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 0;
-            } else {
-                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 1;
-            }
-        }
-        document.getElementsByClassName("slideout")[9].style.borderLeft = "1px solid black";
-        document.getElementsByClassName("slideout")[9].style.borderRight = "1px solid black";
-        document.getElementsByClassName("slideout")[9].style.borderBottom = "1px solid black";
+        index = 9;
     } else if (element.classList.contains("nov")) {
         template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px 38px";
-        for (let i = 0; i < 12; i++) {
-            document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
-            document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
-            document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
-            if (i < 10) {
-                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 0;
-            } else {
-                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 1;
-            }
-        }
-        document.getElementsByClassName("slideout")[10].style.borderLeft = "1px solid black";
-        document.getElementsByClassName("slideout")[10].style.borderRight = "1px solid black";
-        document.getElementsByClassName("slideout")[10].style.borderBottom = "1px solid black";
+        index = 10;
     } else if (element.classList.contains("dec")) {
         template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px 38px";
-        for (let i = 0; i < 12; i++) {
-            document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
-            document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
-            document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
-            if (i < 11) {
-                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 0;
-            } else {
-                document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 1;
-            }
-        }
-        document.getElementsByClassName("slideout")[11].style.borderLeft = "1px solid black";
-        document.getElementsByClassName("slideout")[11].style.borderRight = "1px solid black";
-        document.getElementsByClassName("slideout")[11].style.borderBottom = "1px solid black";
+        index = 11;
     }
+    document.getElementsByClassName("column")[index].childNodes[1].style.opacity = 1;
+    if (index < 11) {
+        document.getElementsByClassName("column")[index + 1].childNodes[1].style.opacity = 1;
+    }
+    document.getElementsByClassName("slideout")[index].style.borderLeft = "1px solid black";
+    document.getElementsByClassName("slideout")[index].style.borderRight = "1px solid black";
+    document.getElementsByClassName("slideout")[index].style.borderBottom = "1px solid black";
 
     for (let i = 0; i < calendars.length; i++) {
         calendars[i].style.gridTemplateColumns = template
     }
-    //let columns = document.getElementsByClassName("column");
-    //for (let j = 0; j < columns.length; j++) {
-    //    columns[j].scrollTop = savedScroll;
-    //    console.log(savedScroll);
-    //}
+
+    populateRecipes(document.getElementsByClassName("slideout")[index], element.textContent.toLowerCase().slice(0,-1));
 }

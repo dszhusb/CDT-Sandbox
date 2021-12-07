@@ -72,6 +72,7 @@ body {
     font-size: 13px;
     margin-top: 14px;
     margin-bottom: 8px;
+    cursor: pointer;
 }
 
 .cap {
@@ -98,6 +99,7 @@ body {
 .slideout {
     height: 600px;
     background-color: white;
+    overflow: scroll;
 }
 
 #filters {
