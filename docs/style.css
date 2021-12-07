@@ -43,15 +43,15 @@ body {
 }
 
 .grid {
-    display: grid;
-    grid-template-columns: 102px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px 38px;
+  display: grid;
+  grid-template-columns: 102px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px 38px;
 }
 
 .calendar {
-    /* Display */
-    border-top: 1px solid black;
-    height: 600px;
-    width: 100%;
+  /* Display */
+  border-top: 1px solid black;
+  height: 600px;
+  width: 100%;
 }
 
 .months {
@@ -68,38 +68,83 @@ body {
 }
 
 .foodItem p {
-    font-weight: 800;
-    font-size: 13px;
-    margin-top: 14px;
-    margin-bottom: 8px;
-    cursor: pointer;
+  font-weight: 800;
+  font-size: 13px;
+  margin-top: 14px;
+  margin-bottom: 8px;
+  cursor: pointer;
 }
 
 .cap {
-    text-align: left;
-    height: 40px;
-    font-size: 14px;
-    font-weight: 800;
-    padding-left: 8px;
-    padding-bottom: .2em;
+  text-align: left;
+  height: 40px;
+  font-size: 14px;
+  font-weight: 800;
+  padding-left: 8px;
+  padding-bottom: .2em;
 }
 
 .column {
-    border-left: 1px solid #D2D2D2;
-    text-align: center;
-    overflow: scroll;
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+  border-left: 1px solid #D2D2D2;
+  text-align: center;
+  overflow: scroll;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 .column::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .slideout {
-    height: 600px;
-    background-color: white;
-    overflow: scroll;
+  height: 600px;
+  background-color: white;
+  overflow: scroll;
+  display: grid;
+  grid-template-columns: 40% 60%;
+}
+
+.slideout div {
+  padding: 2%;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.recipes {
+  border-right: 1px solid black;
+}
+
+.info {
+  margin: 20px 75px 0px 25px;
+}
+
+.info h3 {
+  margin: 0px;
+  font-family: "Forma-DJR-Display";
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.rTags {
+  margin: 4px 0px 0px 0px;
+  padding: 5px;
+
+  font-size: 8px;
+
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  text-align: left;
+}
+
+.timeYield {
+  padding: 0px;
+}
+
+.reviews {
+  padding: 0px;
 }
 
 #filters {
@@ -120,21 +165,16 @@ body {
   width: 100%;
 }
 
-.sticky + .content {
+.sticky+.content {
   padding-top: 1000px;
 }
 
-
-
-<<<<<<< Updated upstream
-=======
-.foodItem p {
+<<<<<<< Updated upstream=======.foodItem p {
   font-weight: 800;
   font-size: 14px;
 }
 
->>>>>>> Stashed changes
-.axisLabel p {
+>>>>>>>Stashed changes .axisLabel p {
   text-align: right;
   font-size: 8.69px;
   font-weight: bolder;

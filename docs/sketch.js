@@ -8,22 +8,21 @@ let filterBar = document.getElementById("filters");
 let sticky = filterBar.offsetTop;
 
 function preload() {
-    loadFoods();
+  loadFoods();
 }
 
 function setup() {
-    establishRankings([]);
-    populateLists();
-    try {
-        noCanvas();
-    } catch (e) {
-        print("No canvas found to remove");
-        print(e);
-    }
+  establishRankings([]);
+  populateLists();
+  try {
+    noCanvas();
+  } catch (e) {
+    print("No canvas found to remove");
+    print(e);
+  }
 }
 
-function draw() {
-}
+function draw() {}
 
 function populateLists() {
   const mClasses = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
@@ -40,9 +39,8 @@ function populateLists() {
       newDiv.append(p);
       newDiv.classList.add("foodItem");
       newDiv.classList.add(mClasses[m]);
-      newDiv.setAttribute("onclick","expandDrawer(this)");
+      newDiv.setAttribute("onclick", "expandDrawer(this)");
       newDiv.style.opacity = "" + constrain(map(i, 0, 12, 1, 0.2), 0.2, 1);
-      // print(newDiv);
 
       document.getElementById(mClasses[m] + ' food').appendChild(newDiv);
     }
@@ -50,11 +48,11 @@ function populateLists() {
 }
 
 function populateRecipes(element, foodName) {
-    let food;
-    for (let i = 0; i < foods.length; i++) {
-        if (foods[i].name == foodName) food = foods[i];
-    }
-    console.log(food);
+  let food;
+  for (let i = 0; i < foods.length; i++) {
+    if (foods[i].name == foodName) food = foods[i];
+  }
+  console.log(food);
   let recipes = food.recipes;
 
   let recipeDiv = document.createElement("div");
@@ -66,14 +64,15 @@ function populateRecipes(element, foodName) {
     let img = document.createElement("img");
     let imgUrl = 'https://nytimes.com/' + r.image;
     if (r.image) {
-        img.setAttribute("src", imgUrl);
+      img.setAttribute("src", imgUrl);
+      img.setAttribute("width", "100%")
     }
 
     let p = document.createElement("p");
     p.append(r.headline);
 
     if (r.image) {
-        newDiv.append(img);
+      newDiv.append(img);
     }
     newDiv.append(p);
 
@@ -89,17 +88,57 @@ function populateRecipes(element, foodName) {
 }
 
 function populateRecipeInfo(element, recipe) {
-    let title = document.createElement("h3");
-    title.append(recipe.headline);
-    let tags = document.createElement("ul");
-    for (let i = 0; recipe.tags && i < recipe.tags.length; i++) {
-        let tag = document.createElement("li");
-        tag.append(recipe.tags[i]);
-        tags.append(tag);
-    }
+  //Headline
+  let title = document.createElement("h3");
+  title.append(recipe.headline);
 
-    element.append(title);
-    element.append(tags);
+  //Tags
+  let tags = document.createElement("ul");
+  tags.classList.add("rTags")
+
+  for (let i = 0; recipe.tags && i < 3; i++) {
+    let tag = document.createElement("li");
+    tag.append(recipe.tags[i]);
+    tags.append(tag);
+  }
+
+  //Time and Yield
+  let timeYield = document.createElement("ul");
+  timeYield.classList.add("timeYield")
+
+  let time = document.createElement("li");
+  time.append("Time ");
+  time.append(recipe.time);
+  timeYield.append(time);
+  let yiel = document.createElement("li");
+  yiel.append("Yield ")
+  yiel.append(recipe.yield);
+  timeYield.append(yiel);
+
+  //Reviews
+  let reviews = document.createElement("ul");
+  reviews.classList.add("reviews")
+  reviews.append("Reviews");
+
+  for (let i = 0; i < recipe.comments.length; i++) {
+    let comment = document.createElement("li");
+    comment.append(recipe.comments[i]);
+    reviews.append(comment);
+  }
+
+  //link
+  let link = document.createElement("a")
+  let linkText = document.createTextNode("Learn More");
+  link.appendChild(linkText);
+  link.title = "Learn More";
+  link.href = recipe.url;
+
+  //Appending All Elements
+  element.append(title);
+  element.append(tags);
+  element.append(timeYield);
+  element.append(reviews);
+  element.append(link);
 }
 
 function updateFilters(filter) {
@@ -112,7 +151,6 @@ function updateFilters(filter) {
       }
     }
   }
-  print(activeFilters);
   establishRankings(activeFilters);
   populateLists();
 }
@@ -233,11 +271,11 @@ function checkTags(fTags, tags) {
 }
 
 function syncScroll(column) {
-    var columns = document.getElementsByClassName("column");
+  var columns = document.getElementsByClassName("column");
 
-    for (let i = 0; i < columns.length; i++) {
-        columns[i].scrollTop = column.scrollTop;
-    }
+  for (let i = 0; i < columns.length; i++) {
+    columns[i].scrollTop = column.scrollTop;
+  }
 }
 
 // window.onscroll = function() {filterScroll()};
@@ -252,69 +290,69 @@ function syncScroll(column) {
 // }
 
 function expandDrawer(element) {
-    let calendars = document.getElementsByClassName("grid");
-    let template = "";
+  let calendars = document.getElementsByClassName("grid");
+  let template = "";
 
-    for (let i = 0; i < 12; i++) {
-        document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
-        document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
-        document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
-        while (document.getElementsByClassName("slideout")[i].firstChild) {
-            document.getElementsByClassName("slideout")[i].removeChild(document.getElementsByClassName("slideout")[i].firstChild);
-        }
-        document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 0;
+  for (let i = 0; i < 12; i++) {
+    document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
+    document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
+    document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
+    while (document.getElementsByClassName("slideout")[i].firstChild) {
+      document.getElementsByClassName("slideout")[i].removeChild(document.getElementsByClassName("slideout")[i].firstChild);
     }
+    document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 0;
+  }
 
-    // expand the right box based on month
-    let index = 0;
-    if (element.classList.contains("jan")) {
-        template = "102px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px 38px";
-        index = 0;
-    } else if (element.classList.contains("feb")) {
-        template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px 38px";
-        index = 1;
-    } else if (element.classList.contains("mar")) {
-        template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px 38px";
-        index = 2;
-    } else if (element.classList.contains("apr")) {
-        template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px 38px";
-        index = 3;
-    } else if (element.classList.contains("may")) {
-        template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px 38px";
-        index = 4;
-    } else if (element.classList.contains("jun")) {
-        template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px 38px";
-        index = 5;
-    } else if (element.classList.contains("jul")) {
-        template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px 38px";
-        index = 6;
-    } else if (element.classList.contains("aug")) {
-        template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px 38px";
-        index = 7;
-    } else if (element.classList.contains("sep")) {
-        template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px 38px";
-        index = 8;
-    } else if (element.classList.contains("oct")) {
-        template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px calc((100vw - 740px) / 14) 0px 38px";
-        index = 9;
-    } else if (element.classList.contains("nov")) {
-        template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px 38px";
-        index = 10;
-    } else if (element.classList.contains("dec")) {
-        template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px 38px";
-        index = 11;
-    }
-    document.getElementsByClassName("column")[index].childNodes[1].style.opacity = 1;
-    if (index < 11) {
-        document.getElementsByClassName("column")[index + 1].childNodes[1].style.opacity = 1;
-    }
-    document.getElementsByClassName("slideout")[index].style.borderLeft = "1px solid black";
-    document.getElementsByClassName("slideout")[index].style.borderRight = "1px solid black";
-    document.getElementsByClassName("slideout")[index].style.borderBottom = "1px solid black";
+  // expand the right box based on month
+  let index = 0;
+  if (element.classList.contains("jan")) {
+    template = "102px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px 38px";
+    index = 0;
+  } else if (element.classList.contains("feb")) {
+    template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px 38px";
+    index = 1;
+  } else if (element.classList.contains("mar")) {
+    template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px 38px";
+    index = 2;
+  } else if (element.classList.contains("apr")) {
+    template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px 38px";
+    index = 3;
+  } else if (element.classList.contains("may")) {
+    template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px 38px";
+    index = 4;
+  } else if (element.classList.contains("jun")) {
+    template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px 38px";
+    index = 5;
+  } else if (element.classList.contains("jul")) {
+    template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px 38px";
+    index = 6;
+  } else if (element.classList.contains("aug")) {
+    template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px 38px";
+    index = 7;
+  } else if (element.classList.contains("sep")) {
+    template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px 38px";
+    index = 8;
+  } else if (element.classList.contains("oct")) {
+    template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px calc((100vw - 740px) / 14) 0px 38px";
+    index = 9;
+  } else if (element.classList.contains("nov")) {
+    template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px calc((100vw - 740px) / 14 * 2) 0px 38px";
+    index = 10;
+  } else if (element.classList.contains("dec")) {
+    template = "102px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14) 0px calc((100vw - 740px) / 14 * 2) 600px 38px";
+    index = 11;
+  }
+  document.getElementsByClassName("column")[index].childNodes[1].style.opacity = 1;
+  if (index < 11) {
+    document.getElementsByClassName("column")[index + 1].childNodes[1].style.opacity = 1;
+  }
+  document.getElementsByClassName("slideout")[index].style.borderLeft = "1px solid black";
+  document.getElementsByClassName("slideout")[index].style.borderRight = "1px solid black";
+  document.getElementsByClassName("slideout")[index].style.borderBottom = "1px solid black";
 
-    for (let i = 0; i < calendars.length; i++) {
-        calendars[i].style.gridTemplateColumns = template
-    }
+  for (let i = 0; i < calendars.length; i++) {
+    calendars[i].style.gridTemplateColumns = template
+  }
 
-    populateRecipes(document.getElementsByClassName("slideout")[index], element.textContent.toLowerCase().slice(0,-1));
+  populateRecipes(document.getElementsByClassName("slideout")[index], element.textContent.toLowerCase().slice(0, -1));
 }
