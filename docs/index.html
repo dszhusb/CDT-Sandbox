@@ -22,17 +22,21 @@
     <nav>
       <ul>
         <li>
-          <a href='about.html'>About</a>
+          <p onclick="openPopup(true)">About</p>
         </li>
         <li>
-          <a href='sources.html'>Sources</a>
-        </li>
-        <li>
-          <a href='index.html'>Home</a>
+          <p onclick="openPopup(false)">Sources</p>
         </li>
       </ul>
     </nav>
   </header>
+
+  <div class="sources">
+      <div>
+          <p>Cause I said so.</p>
+          <img src="img/x.png" class="closeButton" onclick="closePopup()" />
+      </div>
+  </div>
 
   <div>
     <img src="assets/FFBTM.png" id="titleimage" alt="Favorite Foods By The Month" />

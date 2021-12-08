@@ -7,7 +7,7 @@ header {
   /* Spacing */
   max-width: 100%;
   margin: 0 auto;
-  height: 3rem;
+  height: 50px;
   border-bottom: 1px solid black;
 }
 
@@ -15,7 +15,7 @@ nav {
   padding: 0px;
 }
 
-nav ul li a {
+nav ul li p {
   /* Display */
   float: right;
   display: inline-block;
@@ -26,11 +26,15 @@ nav ul li a {
   /* Spacing */
   padding-left: 1em;
   padding-right: 1em;
-  padding-top: 6px;
+  margin: 0px;
+  margin-top: 10px;
+  cursor: pointer;
 }
 
 ul {
   list-style: none;
+  height: 0px;
+  margin: 0px;
 }
 
 body {
@@ -40,6 +44,32 @@ body {
   /* Background */
   background-image: url(assets/grid.png);
   background-size: 100vw;
+}
+
+.sources {
+    position: fixed;
+    top: 0px;
+    background-image: url(assets/grid.png);
+    background-size: 100vw;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+    display: none;
+}
+.sources div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid black;
+    height: 400px;
+    width: 600px;
+    text-align: center;
+}
+
+.about {
+  position: absolute;
 }
 
 .grid {
