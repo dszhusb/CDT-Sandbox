@@ -31,7 +31,7 @@ function populateLists() {
   const mClasses = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
 
   for (let m = 0; m < months.length; m++) {
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 25; i++) {
       let fIndex = months[m][i];
       let food = foods[fIndex];
       let fName = caseCorrect(food.name);
@@ -182,6 +182,7 @@ function populateRecipeInfo(element, recipe) {
   //link
   let link = document.createElement("a")
   let linkText = document.createTextNode("LEARN MORE");
+  link.setAttribute("target", "_blank");
   link.appendChild(linkText);
   link.title = "Learn More";
   link.href = recipe.url;
