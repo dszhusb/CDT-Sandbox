@@ -33,6 +33,7 @@ nav ul li p {
 
 ul {
   list-style: none;
+  height: 0px;
   margin: 0px;
 }
 
@@ -93,7 +94,7 @@ body {
   font-size: 13px;
   width: 90%;
   margin-left: 5%;
-  position: relative;
+  overflow: hidden;
 }
 
 .foodItem p {
@@ -102,15 +103,6 @@ body {
   margin-top: 14px;
   margin-bottom: 8px;
   cursor: pointer;
-  width: 100%;
-  overflow: hidden;
-}
-
-.arrow {
-  position: absolute;
-  height: 30px;
-  right: -5px;
-  top: -5px;
 }
 
 .cap {
