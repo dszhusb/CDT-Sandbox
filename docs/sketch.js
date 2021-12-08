@@ -431,46 +431,43 @@ function expandDrawer(element) {
   // expand the right box based on month
   let index = 0;
   if (element.classList.contains("jan")) {
-    template = "102px calc((100vw - 940px) / 16 * 3) 800px calc((100vw - 940px) / 16 * 3) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px 38px";
+    template = "102px calc((100vw - 940px) / 14 * 4) 800px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px 38px";
     index = 0;
   } else if (element.classList.contains("feb")) {
-    template = "102px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16 * 3) 800px calc((100vw - 940px) / 16 * 3) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px 38px";
+    template = "102px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14 * 4) 800px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px 38px";
     index = 1;
   } else if (element.classList.contains("mar")) {
-    template = "102px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16 * 3) 800px calc((100vw - 940px) / 16 * 3) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px 38px";
+    template = "102px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14 * 4) 800px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px 38px";
     index = 2;
   } else if (element.classList.contains("apr")) {
-    template = "102px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16 * 3) 800px calc((100vw - 940px) / 16 * 3) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px 38px";
+    template = "102px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14 * 4) 800px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px 38px";
     index = 3;
   } else if (element.classList.contains("may")) {
-    template = "102px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16 * 3) 800px calc((100vw - 940px) / 16 * 3) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px 38px";
+    template = "102px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14 * 4) 800px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px 38px";
     index = 4;
   } else if (element.classList.contains("jun")) {
-    template = "102px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16 * 3) 800px calc((100vw - 940px) / 16 * 3) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px 38px";
+    template = "102px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14 * 4) 800px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px 38px";
     index = 5;
   } else if (element.classList.contains("jul")) {
-    template = "102px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16 * 3) 800px calc((100vw - 940px) / 16 * 3) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px 38px";
+    template = "102px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14 * 4) 800px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px 38px";
     index = 6;
   } else if (element.classList.contains("aug")) {
-    template = "102px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16 * 3) 800px calc((100vw - 940px) / 16 * 3) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px 38px";
+    template = "102px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14 * 4) 800px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px 38px";
     index = 7;
   } else if (element.classList.contains("sep")) {
-    template = "102px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16 * 3) 800px calc((100vw - 940px) / 16 * 3) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px 38px";
+    template = "102px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14 * 4) 800px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px 38px";
     index = 8;
   } else if (element.classList.contains("oct")) {
-    template = "102px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16 * 3) 800px calc((100vw - 940px) / 16 * 3) 0px calc((100vw - 940px) / 16) 0px 38px";
+    template = "102px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14 * 4) 800px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px 38px";
     index = 9;
   } else if (element.classList.contains("nov")) {
-    template = "102px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16 * 3) 800px calc((100vw - 940px) / 16 * 3) 0px 38px";
+    template = "102px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14 * 4) 800px calc((100vw - 940px) / 14) 0px 38px";
     index = 10;
   } else if (element.classList.contains("dec")) {
-    template = "102px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16) 0px calc((100vw - 940px) / 16 * 3) 800px 38px";
+    template = "102px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14) 0px calc((100vw - 940px) / 14 * 4) 800px 38px";
     index = 11;
   }
   document.getElementsByClassName("column")[index].childNodes[1].style.opacity = 1;
-  if (index < 11) {
-    document.getElementsByClassName("column")[index + 1].childNodes[1].style.opacity = 1;
-  }
   document.getElementsByClassName("slideout")[index].style.borderLeft = "1px solid black";
   document.getElementsByClassName("slideout")[index].style.borderRight = "1px solid black";
   document.getElementsByClassName("slideout")[index].style.borderBottom = "1px solid black";
