@@ -50,8 +50,18 @@ function populateLists() {
   }
 }
 
+function highlightRecipe(element) {
+    let recipes = document.getElementsByClassName("recipe");
+    console.log(recipes);
+    for (let i = 0; i < recipes.length; i++) {
+        recipes[i].style.opacity = 0.2;
+    }
+    element.style.opacity = 1;
+}
+
 function populateRecipes(element, foodName, r = 0) {
   element.innerHTML = "";
+  let infoDiv = document.createElement("div");
 
   let food;
   for (let i = 0; i < foods.length; i++) {
@@ -71,7 +81,8 @@ function populateRecipes(element, foodName, r = 0) {
     let newDiv = document.createElement("div");
     newDiv.classList.add("recipe");
     newDiv.onclick = function() {
-      populateRecipes(element, foodName, r);
+        populateRecipeInfo(infoDiv, r);
+        highlightRecipe(newDiv);
     };
 
     let img = document.createElement("img");
@@ -92,9 +103,7 @@ function populateRecipes(element, foodName, r = 0) {
     recipeDiv.append(newDiv);
   }
 
-  let infoDiv = document.createElement("div");
   infoDiv.classList.add("info");
-  print(recipes);
   populateRecipeInfo(infoDiv, r);
 
   let closeButton = document.createElement("img");
@@ -105,9 +114,16 @@ function populateRecipes(element, foodName, r = 0) {
   element.append(recipeDiv);
   element.append(infoDiv);
   element.append(closeButton);
+
+  highlightRecipe(document.getElementsByClassName("recipe")[0])
 }
 
 function populateRecipeInfo(element, recipe) {
+  //Remove current info
+  while (element.firstChild) {
+      element.removeChild(element.firstChild);
+  }
+
   //Headline
   let title = document.createElement("h3");
   title.append(recipe.headline);
