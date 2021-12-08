@@ -56,7 +56,6 @@ body {
     z-index: 2;
     display: none;
 }
-
 .sources div {
     position: absolute;
     top: 50%;
@@ -70,25 +69,7 @@ body {
 }
 
 .about {
-    position: fixed;
-    top: 0px;
-    background-image: url(assets/grid.png);
-    background-size: 100vw;
-    width: 100vw;
-    height: 100vh;
-    z-index: 2;
-    display: none;
-}
-.about div {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    border: 1px solid black;
-    height: 400px;
-    width: 600px;
-    text-align: center;
+  position: absolute;
 }
 
 .grid {
@@ -113,7 +94,7 @@ body {
   font-size: 13px;
   width: 90%;
   margin-left: 5%;
-  position: relative;
+  overflow: hidden;
 }
 
 .foodItem p {
@@ -122,16 +103,6 @@ body {
   margin-top: 14px;
   margin-bottom: 8px;
   cursor: pointer;
-  z-index: 2;
-  width: 100%;
-  overflow: hidden;
-}
-
-.arrow {
-  position: absolute;
-  height: 30px;
-  right: -5px;
-  top: -5px;
 }
 
 .cap {
@@ -162,7 +133,7 @@ body {
   background-color: white;
   overflow: scroll;
   display: grid;
-  grid-template-columns: 40% 60%;
+  grid-template-columns: 50% 50%;
   position: relative;
 }
 
@@ -218,7 +189,6 @@ body {
 
 #filters {
   overflow: hidden;
-  z-index: 1;
 }
 
 #filters div {
