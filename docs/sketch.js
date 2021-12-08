@@ -147,6 +147,7 @@ function populateRecipeInfo(element, recipe) {
 }
 
 function updateFilters(filter) {
+  removeRecipes();
   if (!activeFilters.includes(filter)) {
     activeFilters.push(filter);
   } else {
@@ -158,6 +159,14 @@ function updateFilters(filter) {
   }
   establishRankings(activeFilters);
   populateLists();
+}
+
+function removeRecipes() {
+  const mClasses = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+
+  for (let m of mClasses) {
+    let fList = document.getElementById(m + " food").innerHTML = "";
+  }
 }
 
 function caseCorrect(str) {
@@ -311,34 +320,34 @@ function syncScroll(column) {
 // }
 
 function setFoodOpacity(scale) {
-    const months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
-    for (let i = 0; i < months.length; i++) {
-        let monthColumn = document.getElementById(months[i] + ' food');
-        for (let child = 1; child < monthColumn.childNodes.length; child++) {
-            monthColumn.childNodes[child].style.opacity = constrain(map(i, 0, 12, scale, 0.2), 0.2, scale)
-        }
+  const months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+  for (let i = 0; i < months.length; i++) {
+    let monthColumn = document.getElementById(months[i] + ' food');
+    for (let child = 1; child < monthColumn.childNodes.length; child++) {
+      monthColumn.childNodes[child].style.opacity = constrain(map(i, 0, 12, scale, 0.2), 0.2, scale)
     }
-    console.log("opacity");
+  }
+  console.log("opacity");
 }
 
 function closeDrawer() {
-    let calendars = document.getElementsByClassName("grid");
+  let calendars = document.getElementsByClassName("grid");
 
-    setFoodOpacity(1);
+  setFoodOpacity(1);
 
-    for (let i = 0; i < 12; i++) {
-        document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
-        document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
-        document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
-        while (document.getElementsByClassName("slideout")[i].firstChild) {
-            document.getElementsByClassName("slideout")[i].removeChild(document.getElementsByClassName("slideout")[i].firstChild);
-        }
-        document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 1;
-        let template = "102px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px 38px";
-        for (let i = 0; i < calendars.length; i++) {
-            calendars[i].style.gridTemplateColumns = template;
-        }
+  for (let i = 0; i < 12; i++) {
+    document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
+    document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
+    document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
+    while (document.getElementsByClassName("slideout")[i].firstChild) {
+      document.getElementsByClassName("slideout")[i].removeChild(document.getElementsByClassName("slideout")[i].firstChild);
     }
+    document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 1;
+    let template = "102px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px 38px";
+    for (let i = 0; i < calendars.length; i++) {
+      calendars[i].style.gridTemplateColumns = template
+    }
+  }
 
 }
 
@@ -409,7 +418,7 @@ function expandDrawer(element) {
   document.getElementsByClassName("slideout")[index].style.borderBottom = "1px solid black";
 
   for (let i = 0; i < calendars.length; i++) {
-    calendars[i].style.gridTemplateColumns = template
+    calendars[i].style.gridTemplateColumns = template;
   }
 
   populateRecipes(document.getElementsByClassName("slideout")[index], element.textContent.toLowerCase().slice(0, -1));
