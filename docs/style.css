@@ -98,7 +98,7 @@ body {
 .calendar {
   /* Display */
   border-top: 1px solid black;
-  height: 700px;
+  height: 750px;
   width: 100%;
 }
 
@@ -149,7 +149,7 @@ body {
 }
 
 .slideout {
-  height: 700px;
+  height: 750px;
   background-color: white;
   overflow: scroll;
   display: grid;

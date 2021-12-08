@@ -31,7 +31,7 @@ function populateLists() {
   const mClasses = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
 
   for (let m = 0; m < months.length; m++) {
-    for (let i = 0; i < 25; i++) {
+    for (let i = 0; i < 35; i++) {
       let fIndex = months[m][i];
       let food = foods[fIndex];
       let fName = caseCorrect(food.name);
