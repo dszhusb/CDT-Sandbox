@@ -183,6 +183,14 @@ body {
   padding: 14px;
 }
 
+.recipe p{
+  font-size: 12px;
+  padding-top: 5px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+
 .info {
   padding: 0px 75px 0px 25px;
   height: 100%;
@@ -193,9 +201,9 @@ body {
   margin: 0px;
   padding-top: 20px;
   font-family: "Forma-DJR-Display";
-  font-size: 35px;
+  font-size: 45px;
   font-weight: bold;
-  line-height: 1.05em;
+  line-height: 1em;
   color: rgb(61,61,61);
 }
 
@@ -211,11 +219,12 @@ body {
 }
 
 .rTags {
-  margin: 4px 0px 50px -12px;
+  margin: 4px 0px 80px -12px;
   padding: 5px;
 
   font-size: 10px;
   font-weight: 800;
+  line-height: 1.1em;
 
   display: grid;
   grid-template-columns: 33% 33% 33%;
@@ -234,7 +243,7 @@ body {
 .timeYield {
   padding: 0px;
   width: 100%;
-  margin-bottom: 120px;
+  margin-bottom: 90px;
 }
 
 .timeYield h3 {
