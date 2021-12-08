@@ -7,9 +7,6 @@ let activeFilters = [];
 let filterBar = document.getElementById("filters");
 let sticky = filterBar.offsetTop;
 
-let fVegan = document.querySelector('input[id="fVegan"]');
-let fVegetarian = document.querySelector('input[id="fVegetarian"]');
-
 function preload() {
   loadFoods();
 }
@@ -163,14 +160,6 @@ function updateFilters(filter) {
   establishRankings(activeFilters);
   populateLists();
 }
-
-fVegan.addEventListener('change', () => {
-  updateFilters('vegan');
-});
-
-fVegetarian.addEventListener('change', () => {
-  updateFilters('Vegetarian');
-});
 
 function removeRecipes() {
   const mClasses = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
