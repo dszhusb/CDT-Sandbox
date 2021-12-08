@@ -50,18 +50,29 @@ function populateLists() {
   }
 }
 
-function populateRecipes(element, foodName) {
+function populateRecipes(element, foodName, r = 0) {
+  element.innerHTML = "";
+
   let food;
   for (let i = 0; i < foods.length; i++) {
     if (foods[i].name == foodName) food = foods[i];
   }
   let recipes = food.recipes;
 
+  if (r == 0) {
+    r = recipes[0];
+  }
+
   let recipeDiv = document.createElement("div");
-  recipeDiv.classList.add("recipes")
+  recipeDiv.classList.add("recipes");
+
   for (let r of recipes) {
 
     let newDiv = document.createElement("div");
+    newDiv.classList.add("recipe");
+    newDiv.onclick = function() {
+      populateRecipes(element, foodName, r);
+    };
 
     let img = document.createElement("img");
     let imgUrl = 'https://nytimes.com/' + r.image;
@@ -83,7 +94,8 @@ function populateRecipes(element, foodName) {
 
   let infoDiv = document.createElement("div");
   infoDiv.classList.add("info");
-  populateRecipeInfo(infoDiv, recipes[0]);
+  print(recipes);
+  populateRecipeInfo(infoDiv, r);
 
   let closeButton = document.createElement("img");
   closeButton.setAttribute("src", "img/x.png");
@@ -296,23 +308,23 @@ function checkTags(fTags, tags) {
 }
 
 function openPopup(about) {
-    let sourcesPage = document.getElementsByClassName("sources")[0];
-    let aboutPage = document.getElementsByClassName("about")[0];
-    if (about) {
-        aboutPage.style.display = "inline";
-        document.body.style.backgroundImage = "";
-    } else {
-        sourcesPage.style.display = "inline";
-        document.body.style.backgroundImage = "";
-    }
+  let sourcesPage = document.getElementsByClassName("sources")[0];
+  let aboutPage = document.getElementsByClassName("about")[0];
+  if (about) {
+    aboutPage.style.display = "inline";
+    document.body.style.backgroundImage = "";
+  } else {
+    sourcesPage.style.display = "inline";
+    document.body.style.backgroundImage = "";
+  }
 }
 
 function closePopup() {
-    let sourcesPage = document.getElementsByClassName("sources")[0];
-    let aboutPage = document.getElementsByClassName("about")[0];
-    sourcesPage.style.display = "none";
-    aboutPage.style.display = "none";
-    document.body.style.backgroundImage = "url(assets/grid.png)";
+  let sourcesPage = document.getElementsByClassName("sources")[0];
+  let aboutPage = document.getElementsByClassName("about")[0];
+  sourcesPage.style.display = "none";
+  aboutPage.style.display = "none";
+  document.body.style.backgroundImage = "url(assets/grid.png)";
 }
 
 function syncScroll(column) {
@@ -360,7 +372,7 @@ function closeDrawer() {
     document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 1;
     let template = "102px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px 38px";
     for (let i = 0; i < calendars.length; i++) {
-        calendars[i].style.gridTemplateColumns = template;
+      calendars[i].style.gridTemplateColumns = template;
     }
   }
 
