@@ -104,6 +104,7 @@ body {
   overflow: scroll;
   display: grid;
   grid-template-columns: 40% 60%;
+  position: relative;
 }
 
 .slideout div {
@@ -115,6 +116,15 @@ body {
 
 .recipes {
   border-right: 1px solid black;
+}
+
+.closeButton {
+  cursor: pointer;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 28px;
+  padding: 10px;
 }
 
 .info {
@@ -162,7 +172,8 @@ body {
 .sticky {
   position: fixed;
   bottom: 0;
-  width: 100%;
+  width: 20%;
+  right: 14px;
 }
 
 .sticky+.content {

@@ -82,8 +82,14 @@ function populateRecipes(element, foodName) {
   infoDiv.classList.add("info");
   populateRecipeInfo(infoDiv, recipes[0]);
 
+  let closeButton = document.createElement("img");
+  closeButton.setAttribute("src", "img/x.png");
+  closeButton.setAttribute("onclick", "closeDrawer()");
+  closeButton.classList.add("closeButton");
+
   element.append(recipeDiv);
   element.append(infoDiv);
+  element.append(closeButton);
 }
 
 function populateRecipeInfo(element, recipe) {
@@ -297,6 +303,27 @@ function setFoodOpacity(scale) {
         }
     }
     console.log("opacity");
+}
+
+function closeDrawer() {
+    let calendars = document.getElementsByClassName("grid");
+
+    setFoodOpacity(1);
+
+    for (let i = 0; i < 12; i++) {
+        document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
+        document.getElementsByClassName("slideout")[i].style.borderRight = "0px";
+        document.getElementsByClassName("slideout")[i].style.borderBottom = "0px";
+        while (document.getElementsByClassName("slideout")[i].firstChild) {
+            document.getElementsByClassName("slideout")[i].removeChild(document.getElementsByClassName("slideout")[i].firstChild);
+        }
+        document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 1;
+        let template = "102px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px 38px";
+        for (let i = 0; i < calendars.length; i++) {
+            calendars[i].style.gridTemplateColumns = template
+        }
+    }
+
 }
 
 function expandDrawer(element) {
