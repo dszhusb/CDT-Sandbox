@@ -165,7 +165,6 @@ body {
 }
 
 .slideout div {
-  padding: 2%;
   font-family: 'IBM Plex Mono', monospace;
   font-size: 12px;
   font-weight: bold;
@@ -173,6 +172,8 @@ body {
 
 .recipes {
   border-right: 1px solid black;
+  height: 100%;
+  overflow: scroll;
 }
 
 .closeButton {
@@ -185,18 +186,21 @@ body {
 }
 
 .info {
-  margin: 20px 75px 0px 25px;
+  padding: 0px 75px 0px 25px;
+  height: 100%;
+  overflow: scroll;
 }
 
 .info h3 {
   margin: 0px;
+  padding-top: 20px;
   font-family: "Forma-DJR-Display";
   font-size: 35px;
   font-weight: bold;
 }
 
 .rTags {
-  margin: 4px 0px 0px 0px;
+  margin: 4px 0px 50px 0px;
   padding: 5px;
 
   font-size: 8px;
@@ -204,6 +208,15 @@ body {
   display: grid;
   grid-template-columns: 33% 33% 33%;
   text-align: left;
+}
+
+.rTags li {
+  border: 1px solid black;
+  text-align: center;
+  padding: 4px;
+  margin-left: 6px;
+  margin-right: 6px;
+  border-radius: 30px;
 }
 
 .timeYield {
@@ -237,12 +250,7 @@ body {
   padding-top: 1000px;
 }
 
-<<<<<<< Updated upstream=======.foodItem p {
-  font-weight: 800;
-  font-size: 14px;
-}
-
->>>>>>>Stashed changes .axisLabel p {
+.axisLabel p {
   text-align: right;
   font-size: 8.69px;
   font-weight: bolder;

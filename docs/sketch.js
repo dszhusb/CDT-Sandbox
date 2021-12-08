@@ -118,7 +118,7 @@ function populateRecipeInfo(element, recipe) {
 
   for (let i = 0; recipe.tags && i < 3; i++) {
     let tag = document.createElement("li");
-    tag.append(recipe.tags[i]);
+    tag.append(recipe.tags[i].toUpperCase());
     tags.append(tag);
   }
 
@@ -126,14 +126,27 @@ function populateRecipeInfo(element, recipe) {
   let timeYield = document.createElement("ul");
   timeYield.classList.add("timeYield")
 
-  let time = document.createElement("li");
-  time.append("Time ");
-  time.append(recipe.time);
-  timeYield.append(time);
-  let yiel = document.createElement("li");
-  yiel.append("Yield ")
-  yiel.append(recipe.yield);
-  timeYield.append(yiel);
+  if (recipe.time) {
+      let time = document.createElement("li");
+      let timeH3 = document.createElement("h3");
+      timeH3.append("TIME");
+      time.append(timeH3);
+      let timeP = document.createElement("p");
+      timeP.append(recipe.time.toUpperCase());
+      time.append(timeP);
+      timeYield.append(time);
+  }
+
+  if (recipe.yield) {
+      let yiel = document.createElement("li");
+      let yielH3 = document.createElement("h3");
+      yielH3.append("YIELD");
+      yiel.append(yielH3);
+      let yielP = document.createElement("p");
+      yielP.append(recipe.yield.toUpperCase());
+      yiel.append(yielP);
+      timeYield.append(yiel);
+  }
 
   //Reviews
   let reviews = document.createElement("ul");
