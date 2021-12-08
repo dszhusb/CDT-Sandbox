@@ -340,7 +340,7 @@ function setFoodOpacity(scale) {
   for (let i = 0; i < months.length; i++) {
     let monthColumn = document.getElementById(months[i] + ' food');
     for (let child = 1; child < monthColumn.childNodes.length; child++) {
-      monthColumn.childNodes[child].style.opacity = constrain(map(i, 0, 12, scale, 0.2), 0.2, scale)
+      monthColumn.childNodes[child].style.opacity = constrain(map(child, 0, 12, scale, 0.2), 0.2, scale)
     }
   }
 }
