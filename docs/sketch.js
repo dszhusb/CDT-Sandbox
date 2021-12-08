@@ -7,6 +7,9 @@ let activeFilters = [];
 let filterBar = document.getElementById("filters");
 let sticky = filterBar.offsetTop;
 
+let fVegan = document.querySelector('input[id="fVegan"]');
+let fVegetarian = document.querySelector('input[id="fVegetarian"]');
+
 function preload() {
   loadFoods();
 }
@@ -334,6 +337,14 @@ function syncScroll(column) {
 //     filters.classList.remove("sticky");
 //   }
 // }
+
+fVegan.addEventListener('change', () => {
+  updateFilters('vegan');
+});
+
+fVegetarian.addEventListener('change', () => {
+  updateFilters('Vegetarian');
+});
 
 function setFoodOpacity(scale) {
   const months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
