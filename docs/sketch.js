@@ -360,7 +360,7 @@ function closeDrawer() {
     document.getElementsByClassName("column")[i].childNodes[1].style.opacity = 1;
     let template = "102px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px calc((100vw - 140px) / 12) 0px 38px";
     for (let i = 0; i < calendars.length; i++) {
-      calendars[i].style.gridTemplateColumns = template
+        calendars[i].style.gridTemplateColumns = template;
     }
   }
 
@@ -373,7 +373,10 @@ function expandDrawer(element) {
   setFoodOpacity(0.4);
 
   element.style.opacity = 1;
-  console.log("element opacity");
+  let arrow = document.createElement("img");
+  arrow.classList.add("arrow");
+  arrow.setAttribute("src", "img/arrow.png");
+  element.append(arrow);
 
   for (let i = 0; i < 12; i++) {
     document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
