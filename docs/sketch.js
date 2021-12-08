@@ -166,6 +166,7 @@ function populateRecipeInfo(element, recipe) {
   //link
   let link = document.createElement("a")
   let linkText = document.createTextNode("LEARN MORE");
+  link.setAttribute("target", "_blank");
   link.appendChild(linkText);
   link.title = "Learn More";
   link.href = recipe.url;
