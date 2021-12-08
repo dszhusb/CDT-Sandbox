@@ -343,7 +343,13 @@ function setFoodOpacity(scale) {
       monthColumn.childNodes[child].style.opacity = constrain(map(i, 0, 12, scale, 0.2), 0.2, scale)
     }
   }
-  console.log("opacity");
+}
+
+function removeArrows() {
+    let arrows = document.getElementsByClassName("arrow");
+    for (let i = 0; i < arrows.length; i++) {
+        arrows[i].remove();
+    }
 }
 
 function closeDrawer() {
@@ -365,6 +371,7 @@ function closeDrawer() {
     }
   }
 
+  removeArrows();
 }
 
 function expandDrawer(element) {
@@ -372,6 +379,7 @@ function expandDrawer(element) {
   let template = "";
 
   setFoodOpacity(0.4);
+  removeArrows();
 
   element.style.opacity = 1;
   let arrow = document.createElement("img");
