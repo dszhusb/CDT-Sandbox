@@ -98,7 +98,7 @@ body {
 .calendar {
   /* Display */
   border-top: 1px solid black;
-  height: 600px;
+  height: 1000px;
   width: 100%;
 }
 
@@ -156,7 +156,7 @@ body {
 }
 
 .slideout {
-  height: 600px;
+  height: 1000px;
   background-color: white;
   overflow: scroll;
   display: grid;
@@ -221,6 +221,17 @@ body {
 
 .timeYield {
   padding: 0px;
+  width: 100%;
+}
+
+.timeYield h3 {
+  padding-top: 0px;
+  float: left;
+  font-size: 16px;
+}
+.timeYield p {
+  margin-left: 150px;
+  font-size: 10px;
 }
 
 .reviews {
