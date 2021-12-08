@@ -82,7 +82,7 @@ function populateRecipes(element, foodName, r = 0) {
     }
 
     let p = document.createElement("p");
-    p.append(r.headline);
+    p.append(r.headline.toUpperCase());
 
     if (r.image) {
       newDiv.append(img);
