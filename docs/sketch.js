@@ -52,7 +52,6 @@ function populateRecipes(element, foodName) {
   for (let i = 0; i < foods.length; i++) {
     if (foods[i].name == foodName) food = foods[i];
   }
-  console.log(food);
   let recipes = food.recipes;
 
   let recipeDiv = document.createElement("div");
@@ -289,9 +288,25 @@ function syncScroll(column) {
 //   }
 // }
 
+function setFoodOpacity(scale) {
+    const months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+    for (let i = 0; i < months.length; i++) {
+        let monthColumn = document.getElementById(months[i] + ' food');
+        for (let child = 1; child < monthColumn.childNodes.length; child++) {
+            monthColumn.childNodes[child].style.opacity = constrain(map(i, 0, 12, scale, 0.2), 0.2, scale)
+        }
+    }
+    console.log("opacity");
+}
+
 function expandDrawer(element) {
   let calendars = document.getElementsByClassName("grid");
   let template = "";
+
+  setFoodOpacity(0.4);
+
+  element.style.opacity = 1;
+  console.log("element opacity");
 
   for (let i = 0; i < 12; i++) {
     document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
