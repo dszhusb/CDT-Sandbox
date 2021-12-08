@@ -125,13 +125,6 @@ body {
     overflow: hidden;
 }
 
-.arrow {
-    position: absolute;
-    height: 30px;
-    right: -5px;
-    top: -5px;
-}
-
 .cap {
   text-align: left;
   height: 40px;
@@ -199,6 +192,17 @@ body {
   font-weight: bold;
 }
 
+.info a {
+    color: black;
+    float: right;
+    font-family: "Forma-DJR-Display";
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-size: 16px;
+    font-style: italic;
+    opacity: 0.8;
+}
+
 .rTags {
   margin: 4px 0px 50px 0px;
   padding: 5px;
@@ -222,6 +226,7 @@ body {
 .timeYield {
   padding: 0px;
   width: 100%;
+  margin-bottom: 120px;
 }
 
 .timeYield h3 {
@@ -236,6 +241,15 @@ body {
 
 .reviews {
   padding: 0px;
+  font-family: "Forma-DJR-Display";
+  font-size: 18px;
+}
+.reviews li {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  opacity: 0.6;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 15px;
 }
 
 #filters {

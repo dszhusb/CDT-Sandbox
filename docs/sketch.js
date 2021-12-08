@@ -137,6 +137,10 @@ function populateRecipeInfo(element, recipe) {
       timeYield.append(time);
   }
 
+  if (recipe.time && recipe.yield) {
+      timeYield.append(document.createElement("hr"));
+  }
+
   if (recipe.yield) {
       let yiel = document.createElement("li");
       let yielH3 = document.createElement("h3");
@@ -151,7 +155,7 @@ function populateRecipeInfo(element, recipe) {
   //Reviews
   let reviews = document.createElement("ul");
   reviews.classList.add("reviews")
-  reviews.append("Reviews");
+  reviews.append("REVIEWS");
 
   for (let i = 0; i < recipe.comments.length; i++) {
     let comment = document.createElement("li");
@@ -161,7 +165,7 @@ function populateRecipeInfo(element, recipe) {
 
   //link
   let link = document.createElement("a")
-  let linkText = document.createTextNode("Learn More");
+  let linkText = document.createTextNode("LEARN MORE");
   link.appendChild(linkText);
   link.title = "Learn More";
   link.href = recipe.url;
@@ -317,10 +321,10 @@ function openPopup(about) {
   let aboutPage = document.getElementsByClassName("about")[0];
   if (about) {
     aboutPage.style.display = "inline";
-    document.body.style.backgroundImage = "";
+    document.body.style.backgroundImage = "none";
   } else {
     sourcesPage.style.display = "inline";
-    document.body.style.backgroundImage = "";
+    document.body.style.backgroundImage = "none";
   }
 }
 
@@ -369,13 +373,6 @@ function setFoodOpacity(scale) {
   }
 }
 
-function removeArrows() {
-    let arrows = document.getElementsByClassName("arrow");
-    for (let i = 0; i < arrows.length; i++) {
-        arrows[i].remove();
-    }
-}
-
 function closeDrawer() {
   let calendars = document.getElementsByClassName("grid");
 
@@ -394,8 +391,6 @@ function closeDrawer() {
       calendars[i].style.gridTemplateColumns = template;
     }
   }
-
-  removeArrows();
 }
 
 function expandDrawer(element) {
@@ -403,13 +398,8 @@ function expandDrawer(element) {
   let template = "";
 
   setFoodOpacity(0.4);
-  removeArrows();
 
   element.style.opacity = 1;
-  let arrow = document.createElement("img");
-  arrow.classList.add("arrow");
-  arrow.setAttribute("src", "img/arrow.png");
-  element.append(arrow);
 
   for (let i = 0; i < 12; i++) {
     document.getElementsByClassName("slideout")[i].style.borderLeft = "0px";
