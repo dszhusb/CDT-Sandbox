@@ -285,18 +285,22 @@ function checkTags(fTags, tags) {
 }
 
 function openPopup(about) {
-    let sources = document.getElementsByClassName("sources")[0];
+    let sourcesPage = document.getElementsByClassName("sources")[0];
+    let aboutPage = document.getElementsByClassName("about")[0];
     if (about) {
-
+        aboutPage.style.display = "inline";
+        document.body.style.backgroundImage = "";
     } else {
-        sources.style.display = "inline";
+        sourcesPage.style.display = "inline";
         document.body.style.backgroundImage = "";
     }
 }
 
 function closePopup() {
-    let sources = document.getElementsByClassName("sources")[0];
-    sources.style.display = "none";
+    let sourcesPage = document.getElementsByClassName("sources")[0];
+    let aboutPage = document.getElementsByClassName("about")[0];
+    sourcesPage.style.display = "none";
+    aboutPage.style.display = "none";
     document.body.style.backgroundImage = "url(assets/grid.png)";
 }
 
